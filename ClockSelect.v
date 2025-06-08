@@ -1,6 +1,5 @@
 module ClockSelect#(
 	parameter BIT_WIDTH = 8,
-	parameter P = 8000000
 )(
 	//External clocks
 	input wire [BIT_WIDTH-1:0] TMCI0,
