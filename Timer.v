@@ -13,7 +13,7 @@ module Timer #(
     	//Channel 1
     	input 	[BIT_WIDTH-1:0] TMCI1, 	//Inputs external clock for counter
 	input 	[BIT_WIDTH-1:0] TMRI1, 	//Inputs external reset to counter
-	output 	[BIT_WIDTH-1:0] TMO1, 	//Outputs compare match
+	output 	[BIT_WIDTH-1:0] TMO1 	//Outputs compare match
 );
 
 
