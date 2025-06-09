@@ -1,21 +1,26 @@
-module ClockSelect#(
-	parameter BIT_WIDTH = 8,
-)(
-	//External clocks
-	input wire [BIT_WIDTH-1:0] TMCI0,
-	input wire [BIT_WIDTH-1:0] TMCI1,
-
+module ClockSelect(
 	//Internal clocks
-	input wire [BIT_WIDTH-1:0] P_2,
-	input wire [BIT_WIDTH-1:0] P_8,
-	input wire [BIT_WIDTH-1:0] P_32,
-	input wire [BIT_WIDTH-1:0] P_64,
-	input wire [BIT_WIDTH-1:0] P_1024,
-	input wire [BIT_WIDTH-1:0] P_8192,
+	input wire clk,
 
-	output [BIT_WIDTH-1:0] CounterClock1,
-	output [BIT_WIDTH-1:0] CounterClock2
+	//External clocks
+	input wire TMCI0,
+	input wire TMCI1,
+
+	//output
+	output CounterClock1,
+	output CounterClock2
 );
 
+
+endmodule
+
+
+
+module ClockDivider#(
+	parameter DIVISOR = 1
+)(
+	input clk_in,
+	output reg clk_out
+);
 
 endmodule

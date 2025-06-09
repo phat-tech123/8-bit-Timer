@@ -2,7 +2,6 @@
 
 module Timer #(
 	parameter BIT_WIDTH = 8,
-	parameter P = 8000000
 )(
     	input wire clk,          
 
