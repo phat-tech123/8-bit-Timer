@@ -1,6 +1,6 @@
 module ControlLogic#(
 	parameter BIT_WIDTH = 8,
-	parameter CLK_SELECT_BIT_WIDTH = 3
+	parameter CLK_SELECT_BIT_WIDTH = 4
 )(
 	input clk,
 	input wire TMRI0,
@@ -36,42 +36,6 @@ module ControlLogic#(
 	output reg [CLK_SELECT_BIT_WIDTH-1:0] clock_select
 );
 
-/*
-// TCR
-wire CMIEB_0 = TCR_0[7];
-wire CMIEA_0;
-wire OVIE_0;
-wire CCLR1_0;
-wire CCLR0_0;
-wire CKS2_0;
-wire CKS1_0;
-wire CKS0_0;
-assign CMIEB_0 	= TCR_0[7];
-assign CMIEA_0 	= TCR_0[6];
-assign OVIE_0 	= TCR_0[5];
-assign CCLR0_0 	= TCR_0[4];
-assign CCLR1_0 	= TCR_0[3];
-assign CKS2_0 	= TCR_0[2];
-assign CKS1_0 	= TCR_0[1];
-assign CKS0_0 	= TCR_0[0];
-
-wire CMIEB_1;
-wire CMIEA_1;
-wire OVIE_1;
-wire CCLR1_1;
-wire CCLR0_1;
-wire CKS2_1;
-wire CKS1_1;
-wire CKS0_1;
-assign CMIEB_1 	= TCR_1[7];
-assign CMIEA_1 	= TCR_1[6];
-assign OVIE_1 	= TCR_1[5];
-assign CCLR0_1 	= TCR_1[4];
-assign CCLR1_1 	= TCR_1[3];
-assign CKS2_1 	= TCR_1[2];
-assign CKS1_1 	= TCR_1[1];
-assign CKS0_1 	= TCR_1[0];
-*/
 
 //TCR
 assign CMIEB_0 	= TCR_0[7];

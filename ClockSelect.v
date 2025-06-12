@@ -15,7 +15,9 @@ module ClockSelect#(
 
 	//output
 	output wire CounterClock0,
-	output wire CounterClock1
+	output wire CounterEdge0,
+	output wire CounterClock1,
+	output wire CounterEdge1
 );
 
     	wire clk_div2, clk_div8, clk_div32, clk_div64, clk_div1024, clk_div8192;
