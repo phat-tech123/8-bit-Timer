@@ -1,25 +1,20 @@
 module ClockSelect_tb;
 	reg clk, TMCI0, TMCI1;
-	reg clock_select, edge_slect;
-	reg [2:0] clock_select_0;
-	reg [2:0] clock_select_1;
-	reg edge_select_0;
-	reg edge_select_1;
+	reg [4:0] clock_select_0;
+	reg [4:0] clock_select_1;
 
 	wire CounterClock0;
-	wire CounterEdge0;
+	wire [1:0] CounterEdge0;
 	wire CounterClock1;
-	wire CounterEdge1;
+	wire [1:0] CounterEdge1;
 
-	ClockSelect #(.CLK_SELECT_BIT_WIDTH(3)) ClockSelect_u(
+	ClockSelect #(.CLK_SELECT_BIT_WIDTH(5)) ClockSelect_u(
 		.clk(clk),
 		.TMCI0(TMCI0),
 		.TMCI1(TMCI1),
 	
 		.clock_select_0(clock_select_0),
 		.clock_select_1(clock_select_1),
-		.edge_select_0(edge_select_0),
-		.edge_select_1(edge_select_1),
 
 		.CounterClock0(CounterClock0),
 		.CounterEdge0(CounterEdge0),
@@ -35,10 +30,8 @@ module ClockSelect_tb;
 		clk 	= 0;
 		TMCI0 	= 0;
 		TMCI1 	= 0;
-		clock_select_0 = 3'b000;
-		edge_select_0 = 0;
-		clock_select_1 = 3'b111;
-		edge_select_1 = 1;
+		clock_select_0 = 5'b00101;
+		clock_select_1 = 5'b10100;
 
 
 		#200 $finish;
