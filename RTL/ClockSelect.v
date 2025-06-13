@@ -9,9 +9,10 @@ module ClockSelect#(
 	input wire TMCI1,
 
 	//clock_select
-	input wire [CLK_SELECT_BIT_WIDTH-1:0] clock_select_0;
-	input wire [CLK_SELECT_BIT_WIDTH-1:0] clock_select_1;
-	input wire edge_select;
+	input wire [CLK_SELECT_BIT_WIDTH-1:0] clock_select_0,
+	input wire [CLK_SELECT_BIT_WIDTH-1:0] clock_select_1,
+	input wire edge_select_0,
+	input wire edge_select_1,
 
 	//output
 	output wire CounterClock0,
@@ -30,7 +31,7 @@ module ClockSelect#(
 
 	reg selected_clk_0;
 	always@(*) begin
-		case(clock_select)
+		case(clock_select_0)
 			3'b000: selected_clk_0 	= clk_div2;
             		3'b001: selected_clk_0 	= clk_div8;
 			3'b010: selected_clk_0 	= clk_div32;
@@ -39,13 +40,13 @@ module ClockSelect#(
 			3'b101: selected_clk_0 	= clk_div8192;
 			3'b110: selected_clk_0 	= TMCI0;
 			3'b111: selected_clk_0 	= TMCI1;
-			default: selected_clk_0 = selected_clk;
+			default: selected_clk_0 = selected_clk_0;
 		endcase
 	end
 	
 	reg selected_clk_1;
 	always@(*) begin
-		case(clock_select)
+		case(clock_select_1)
 			3'b000: selected_clk_1 	= clk_div2;
             		3'b001: selected_clk_1 	= clk_div8;
 			3'b010: selected_clk_1 	= clk_div32;
@@ -54,14 +55,15 @@ module ClockSelect#(
 			3'b101: selected_clk_1 	= clk_div8192;
 			3'b110: selected_clk_1 	= TMCI0;
 			3'b111: selected_clk_1 	= TMCI1;
-			default: selected_clk_1 = selected_clk;
+			default: selected_clk_1 = selected_clk_1;
 		endcase
 	end
 
 	assign CounterClock0 = selected_clk_0;
 	assign CounterClock1 = selected_clk_1;
+	assign CounterEdge0  = edge_select_0;
+	assign CounterEdge1  = edge_select_1;
 endmodule
-
 
 
 module ClockDivider#(
