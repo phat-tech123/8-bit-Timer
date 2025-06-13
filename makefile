@@ -42,3 +42,23 @@ clk_select_wave:
 
 clk_select_clean:
 	rm -f $(CLK_SELECT_OUTPUT) $(CLK_SELECT_VCD_FILE)
+
+
+#Counter
+COUNTER_OUTPUT = $(OUTPUT_DIR)/Counter
+COUNTER_SRC = RTL/Counter.v Testbench/Counter_tb.v
+COUNTER_VCD_FILE = $(OUTPUT_DIR)/Counter.vcd
+
+counter_all: counter_compile counter_run counter_wave
+
+counter_compile:
+	$(IVERILOG) -o $(COUNTER_OUTPUT) $(COUNTER_SRC)
+
+counter_run:
+	$(VPP) $(COUNTER_OUTPUT)
+
+counter_wave:
+	$(GTKWAVE) $(COUNTER_VCD_FILE)
+
+counter_clean:
+	rm -f $(COUNTER_OUTPUT) $(COUNTER_VCD_FILE)
