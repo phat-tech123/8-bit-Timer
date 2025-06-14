@@ -1,8 +1,7 @@
-module ControlLogic#(
+module LogicControl#(
 	parameter BIT_WIDTH = 8,
 	parameter CLK_SELECT_BIT_WIDTH = 4
 )(
-	input clk,
 	input wire TMRI0,
 	input wire TMRI1,
 
@@ -10,8 +9,8 @@ module ControlLogic#(
 	input wire [BIT_WIDTH-1:0] TCR_1,
 	input wire [BIT_WIDTH-1:0] TCCR_0,
 	input wire [BIT_WIDTH-1:0] TCCR_1,
-	inout wire [BIT_WIDTH-1:0] TCSR_0,
-	inout wire [BIT_WIDTH-1:0] TCSR_1,
+	input wire [BIT_WIDTH-1:0] TCSR_0,
+	input wire [BIT_WIDTH-1:0] TCSR_1,
 
 	input wire CompareMatchA0,
 	input wire CompareMatchA1,
@@ -19,8 +18,8 @@ module ControlLogic#(
 	input wire CompareMatchB1,
 	input wire Overflow0,
 	input wire Overflow1,
-	output reg CounterClear0,
-	output reg CounterClear1,
+	output wire CounterClear0,
+	output wire CounterClear1,
 
 	output reg CMIA0,
 	output reg CMIA1,
@@ -121,7 +120,7 @@ end
 always@(*) begin
 	ADC_REQUEST <= (ADTE_0)? CompareMatchA0 : !CompareMatchA0;
 	//Channel 0
-	case({OS3_0, OS2_0, OS1_0, OS0_0}) begin
+	case({OS3_0, OS2_0, OS1_0, OS0_0}) 
 		4'b0000: TMO0 <= TMRI0;
 		4'b0001: TMO0 <= !CompareMatchA0;
 		4'b0010: TMO0 <= CompareMatchA0;
@@ -139,9 +138,9 @@ always@(*) begin
 		4'b1110: TMO0 <= (CompareMatchB0) ? ~TMO0 : CompareMatchA0;
 		4'b1111: TMO0 <= (CompareMatchA0 || CompareMatchB0) ? ~TMO0 : TMO0;
 		default: TMO0 <= TMO0;
-	end
+	endcase
 	//Channel 1
-	case({OS3_1, OS2_1, OS1_1, OS0_1}) begin
+	case({OS3_1, OS2_1, OS1_1, OS0_1}) 
 		4'b0000: TMO1 <= TMRI1;
 		4'b0001: TMO1 <= !CompareMatchA1;
 		4'b0010: TMO1 <= CompareMatchA1;
@@ -159,7 +158,7 @@ always@(*) begin
 		4'b1110: TMO1 <= (CompareMatchB1) ? ~TMO1 : CompareMatchA1;
 		4'b1111: TMO1 <= (CompareMatchA1 || CompareMatchB1) ? ~TMO1 : TMO1;
 		default: TMO1 <= TMO1;
-	end
+	endcase
 end
 
 assign clock_select_0 = {CKS2_0, CKS1_0, CKS0_0, ICKS1_0, ICKS0_0};

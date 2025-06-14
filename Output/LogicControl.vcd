@@ -1,0 +1,1014 @@
+$date
+	Sat Jun 14 21:38:03 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module LogicControl_tb $end
+$var wire 5 ! clock_select_1 [4:0] $end
+$var wire 5 " clock_select_0 [4:0] $end
+$var wire 1 # TMO1 $end
+$var wire 1 $ TMO0 $end
+$var wire 1 % OVI1 $end
+$var wire 1 & OVI0 $end
+$var wire 1 ' CMIB1 $end
+$var wire 1 ( CMIB0 $end
+$var wire 1 ) CMIA1 $end
+$var wire 1 * CMIA0 $end
+$var wire 1 + ADC_REQUEST $end
+$var reg 1 , CompareMatchA0 $end
+$var reg 1 - CompareMatchA1 $end
+$var reg 1 . CompareMatchB0 $end
+$var reg 1 / CompareMatchB1 $end
+$var reg 1 0 Overflow0 $end
+$var reg 1 1 Overflow1 $end
+$var reg 8 2 TCCR_0 [7:0] $end
+$var reg 8 3 TCCR_1 [7:0] $end
+$var reg 8 4 TCR_0 [7:0] $end
+$var reg 8 5 TCR_1 [7:0] $end
+$var reg 8 6 TCSR_0 [7:0] $end
+$var reg 8 7 TCSR_1 [7:0] $end
+$var reg 1 8 TMRI0 $end
+$var reg 1 9 TMRI1 $end
+$scope module LogicControl_u $end
+$var wire 1 , CompareMatchA0 $end
+$var wire 1 - CompareMatchA1 $end
+$var wire 1 . CompareMatchB0 $end
+$var wire 1 / CompareMatchB1 $end
+$var wire 1 : Overflow0 $end
+$var wire 1 ; Overflow1 $end
+$var wire 8 < TCCR_0 [7:0] $end
+$var wire 8 = TCCR_1 [7:0] $end
+$var wire 8 > TCR_0 [7:0] $end
+$var wire 8 ? TCR_1 [7:0] $end
+$var wire 8 @ TCSR_0 [7:0] $end
+$var wire 8 A TCSR_1 [7:0] $end
+$var wire 1 8 TMRI0 $end
+$var wire 1 9 TMRI1 $end
+$var wire 1 B pulse_rst_0 $end
+$var wire 1 C pulse_rst_1 $end
+$var wire 5 D clock_select_1 [4:0] $end
+$var wire 5 E clock_select_0 [4:0] $end
+$var wire 1 F TMRIS_1 $end
+$var wire 1 G TMRIS_0 $end
+$var wire 1 H OVIE_1 $end
+$var wire 1 I OVIE_0 $end
+$var wire 1 J OVF_1 $end
+$var wire 1 K OVF_0 $end
+$var wire 1 L OS3_1 $end
+$var wire 1 M OS3_0 $end
+$var wire 1 N OS2_1 $end
+$var wire 1 O OS2_0 $end
+$var wire 1 P OS1_1 $end
+$var wire 1 Q OS1_0 $end
+$var wire 1 R OS0_1 $end
+$var wire 1 S OS0_0 $end
+$var wire 1 T ICKS1_1 $end
+$var wire 1 U ICKS1_0 $end
+$var wire 1 V ICKS0_1 $end
+$var wire 1 W ICKS0_0 $end
+$var wire 1 X CounterClear1 $end
+$var wire 1 Y CounterClear0 $end
+$var wire 1 Z CMIEB_1 $end
+$var wire 1 [ CMIEB_0 $end
+$var wire 1 \ CMIEA_1 $end
+$var wire 1 ] CMIEA_0 $end
+$var wire 1 ^ CMFB_1 $end
+$var wire 1 _ CMFB_0 $end
+$var wire 1 ` CMFA_1 $end
+$var wire 1 a CMFA_0 $end
+$var wire 1 b CKS2_1 $end
+$var wire 1 c CKS2_0 $end
+$var wire 1 d CKS1_1 $end
+$var wire 1 e CKS1_0 $end
+$var wire 1 f CKS0_1 $end
+$var wire 1 g CKS0_0 $end
+$var wire 1 h CCLR1_1 $end
+$var wire 1 i CCLR1_0 $end
+$var wire 1 j CCLR0_1 $end
+$var wire 1 k CCLR0_0 $end
+$var wire 1 l ADTE_0 $end
+$var parameter 32 m BIT_WIDTH $end
+$var parameter 32 n CLK_SELECT_BIT_WIDTH $end
+$var reg 1 + ADC_REQUEST $end
+$var reg 1 * CMIA0 $end
+$var reg 1 ) CMIA1 $end
+$var reg 1 ( CMIB0 $end
+$var reg 1 ' CMIB1 $end
+$var reg 1 & OVI0 $end
+$var reg 1 % OVI1 $end
+$var reg 1 $ TMO0 $end
+$var reg 1 # TMO1 $end
+$var reg 1 o edge_rst_0 $end
+$var reg 1 p edge_rst_1 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b101 n
+b1000 m
+$end
+#0
+$dumpvars
+xp
+xo
+0l
+0k
+0j
+0i
+0h
+0g
+0f
+0e
+0d
+0c
+0b
+0a
+0`
+0_
+0^
+0]
+0\
+0[
+0Z
+0Y
+0X
+0W
+0V
+0U
+0T
+0S
+0R
+0Q
+0P
+0O
+0N
+0M
+0L
+0K
+0J
+0I
+0H
+0G
+0F
+b0 E
+b0 D
+0C
+0B
+b10000 A
+b0 @
+b0 ?
+b0 >
+b0 =
+b0 <
+z;
+z:
+09
+08
+b10000 7
+b0 6
+b0 5
+b0 4
+b0 3
+b0 2
+01
+00
+0/
+0.
+0-
+0,
+1+
+0*
+0)
+0(
+0'
+0&
+0%
+0$
+0#
+b0 "
+b0 !
+$end
+#5
+0+
+1,
+#10
+1+
+0,
+1.
+#15
+0+
+1,
+#20
+1$
+1+
+1O
+1Q
+0,
+0.
+b110 6
+b110 @
+#25
+0+
+1,
+#30
+0$
+1+
+0,
+1.
+#35
+1$
+0+
+1,
+#40
+1+
+0,
+0.
+#45
+0+
+1,
+#50
+0$
+1+
+0,
+1.
+#55
+1$
+0+
+1,
+#60
+1+
+0,
+0.
+#65
+0+
+1,
+#70
+0$
+1+
+0,
+1.
+#75
+1$
+0+
+1,
+#80
+1+
+0,
+0.
+#85
+0+
+1,
+#90
+0$
+1+
+0,
+1.
+#95
+1$
+0+
+1,
+#100
+1+
+0,
+0.
+#105
+0+
+1,
+#110
+0$
+1+
+0,
+1.
+#115
+1$
+0+
+1,
+#120
+1+
+0,
+0.
+#125
+0+
+1,
+#130
+0$
+1+
+0,
+1.
+#135
+1$
+0+
+1,
+#140
+1+
+0,
+0.
+#145
+0+
+1,
+#150
+0$
+1+
+0,
+1.
+#155
+1$
+0+
+1,
+#160
+1+
+0,
+0.
+#165
+0+
+1,
+#170
+0$
+1+
+0,
+1.
+#175
+1$
+0+
+1,
+#180
+1+
+0,
+0.
+#185
+0+
+1,
+#190
+0$
+1+
+0,
+1.
+#195
+1$
+0+
+1,
+#200
+1+
+0,
+0.
+#205
+0+
+1,
+#210
+0$
+1+
+0,
+1.
+#215
+1$
+0+
+1,
+#220
+1+
+0,
+0.
+#225
+0+
+1,
+#230
+0$
+1+
+0,
+1.
+#235
+1$
+0+
+1,
+#240
+1+
+0,
+0.
+#245
+0+
+1,
+#250
+0$
+1+
+0,
+1.
+#255
+1$
+0+
+1,
+#260
+1+
+0,
+0.
+#265
+0+
+1,
+#270
+0$
+1+
+0,
+1.
+#275
+1$
+0+
+1,
+#280
+1+
+0,
+0.
+#285
+0+
+1,
+#290
+0$
+1+
+0,
+1.
+#295
+1$
+0+
+1,
+#300
+1+
+0,
+0.
+#305
+0+
+1,
+#310
+0$
+1+
+0,
+1.
+#315
+1$
+0+
+1,
+#320
+1+
+0,
+0.
+#325
+0+
+1,
+#330
+0$
+1+
+0,
+1.
+#335
+1$
+0+
+1,
+#340
+1+
+0,
+0.
+#345
+0+
+1,
+#350
+0$
+1+
+0,
+1.
+#355
+1$
+0+
+1,
+#360
+1+
+0,
+0.
+#365
+0+
+1,
+#370
+0$
+1+
+0,
+1.
+#375
+1$
+0+
+1,
+#380
+1+
+0,
+0.
+#385
+0+
+1,
+#390
+0$
+1+
+0,
+1.
+#395
+1$
+0+
+1,
+#400
+1+
+0,
+0.
+#405
+0+
+1,
+#410
+0$
+1+
+0,
+1.
+#415
+1$
+0+
+1,
+#420
+1+
+0,
+0.
+#425
+0+
+1,
+#430
+0$
+1+
+0,
+1.
+#435
+1$
+0+
+1,
+#440
+1+
+0,
+0.
+#445
+0+
+1,
+#450
+0$
+1+
+0,
+1.
+#455
+1$
+0+
+1,
+#460
+1+
+0,
+0.
+#465
+0+
+1,
+#470
+0$
+1+
+0,
+1.
+#475
+1$
+0+
+1,
+#480
+1+
+0,
+0.
+#485
+0+
+1,
+#490
+0$
+1+
+0,
+1.
+#495
+1$
+0+
+1,
+#500
+1+
+0,
+0.
+#505
+0+
+1,
+#510
+0$
+1+
+0,
+1.
+#515
+1$
+0+
+1,
+#520
+1+
+0,
+0.
+#525
+0+
+1,
+#530
+0$
+1+
+0,
+1.
+#535
+1$
+0+
+1,
+#540
+1+
+0,
+0.
+#545
+0+
+1,
+#550
+0$
+1+
+0,
+1.
+#555
+1$
+0+
+1,
+#560
+1+
+0,
+0.
+#565
+0+
+1,
+#570
+0$
+1+
+0,
+1.
+#575
+1$
+0+
+1,
+#580
+1+
+0,
+0.
+#585
+0+
+1,
+#590
+0$
+1+
+0,
+1.
+#595
+1$
+0+
+1,
+#600
+1+
+0,
+0.
+#605
+0+
+1,
+#610
+0$
+1+
+0,
+1.
+#615
+1$
+0+
+1,
+#620
+1+
+0,
+0.
+#625
+0+
+1,
+#630
+0$
+1+
+0,
+1.
+#635
+1$
+0+
+1,
+#640
+1+
+0,
+0.
+#645
+0+
+1,
+#650
+0$
+1+
+0,
+1.
+#655
+1$
+0+
+1,
+#660
+1+
+0,
+0.
+#665
+0+
+1,
+#670
+0$
+1+
+0,
+1.
+#675
+1$
+0+
+1,
+#680
+1+
+0,
+0.
+#685
+0+
+1,
+#690
+0$
+1+
+0,
+1.
+#695
+1$
+0+
+1,
+#700
+1+
+0,
+0.
+#705
+0+
+1,
+#710
+0$
+1+
+0,
+1.
+#715
+1$
+0+
+1,
+#720
+1+
+0,
+0.
+#725
+0+
+1,
+#730
+0$
+1+
+0,
+1.
+#735
+1$
+0+
+1,
+#740
+1+
+0,
+0.
+#745
+0+
+1,
+#750
+0$
+1+
+0,
+1.
+#755
+1$
+0+
+1,
+#760
+1+
+0,
+0.
+#765
+0+
+1,
+#770
+0$
+1+
+0,
+1.
+#775
+1$
+0+
+1,
+#780
+1+
+0,
+0.
+#785
+0+
+1,
+#790
+0$
+1+
+0,
+1.
+#795
+1$
+0+
+1,
+#800
+1+
+0,
+0.
+#805
+0+
+1,
+#810
+0$
+1+
+0,
+1.
+#815
+1$
+0+
+1,
+#820
+1+
+0,
+0.
+#825
+0+
+1,
+#830
+0$
+1+
+0,
+1.
+#835
+1$
+0+
+1,
+#840
+1+
+0,
+0.
+#845
+0+
+1,
+#850
+0$
+1+
+0,
+1.
+#855
+1$
+0+
+1,
+#860
+1+
+0,
+0.
+#865
+0+
+1,
+#870
+0$
+1+
+0,
+1.
+#875
+1$
+0+
+1,
+#880
+1+
+0,
+0.
+#885
+0+
+1,
+#890
+0$
+1+
+0,
+1.
+#895
+1$
+0+
+1,
+#900
+1+
+0,
+0.
+#905
+0+
+1,
+#910
+0$
+1+
+0,
+1.
+#915
+1$
+0+
+1,
+#920
+1+
+0,
+0.
+#925
+0+
+1,
+#930
+0$
+1+
+0,
+1.
+#935
+1$
+0+
+1,
+#940
+1+
+0,
+0.
+#945
+0+
+1,
+#950
+0$
+1+
+0,
+1.
+#955
+1$
+0+
+1,
+#960
+1+
+0,
+0.
+#965
+0+
+1,
+#970
+0$
+1+
+0,
+1.
+#975
+1$
+0+
+1,
+#980
+1+
+0,
+0.
+#985
+0+
+1,
+#990
+0$
+1+
+0,
+1.
+#995
+1$
+0+
+1,
+#1000
+1+
+0,
+0.
+#1005
+0+
+1,
+#1010
+0$
+1+
+0,
+1.
+#1015
+1$
+0+
+1,
+#1020
+1+
+0,
+0.

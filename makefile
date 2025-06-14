@@ -43,7 +43,6 @@ clk_select_wave:
 clk_select_clean:
 	rm -f $(CLK_SELECT_OUTPUT) $(CLK_SELECT_VCD_FILE)
 
-
 #Counter
 COUNTER_OUTPUT = $(OUTPUT_DIR)/Counter
 COUNTER_SRC = RTL/Counter.v Testbench/Counter_tb.v
@@ -62,3 +61,23 @@ counter_wave:
 
 counter_clean:
 	rm -f $(COUNTER_OUTPUT) $(COUNTER_VCD_FILE)
+
+
+#LogicControl
+LOGIC_CONTROL_OUTPUT = $(OUTPUT_DIR)/LogicControl
+LOGIC_CONTROL_SRC = RTL/LogicControl.v Testbench/LogicControl_tb.v
+LOGIC_CONTROL_VCD_FILE = $(OUTPUT_DIR)/LogicControl.vcd
+
+logic_control_all: logic_control_compile logic_control_run logic_control_wave
+
+logic_control_compile:
+	$(IVERILOG) -o $(LOGIC_CONTROL_OUTPUT) $(LOGIC_CONTROL_SRC)
+
+logic_control_run:
+	$(VPP) $(LOGIC_CONTROL_OUTPUT)
+
+logic_control_wave:
+	$(GTKWAVE) $(LOGIC_CONTROL_VCD_FILE)
+
+logic_control_clean:
+	rm -f $(LOGIC_CONTROL_OUTPUT) $(LOGIC_CONTROL_VCD_FILE)
