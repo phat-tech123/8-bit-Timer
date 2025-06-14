@@ -1,11 +1,21 @@
-# 8 bit Timers (TMR)
+# 8-Bit Timers (TMR)
 
 ## Introduction
-This LSI has two units (unit 0 and unit 1) of an on-chip 8-bit timer module that comprise two 8-bit
-counter channels, totaling four channels. The 8-bit timer module can be used to count external
-events and also be used as a multifunction timer in a variety of applications, such as generation of
-counter reset, interrupt requests, and pulse output with a desired duty cycle using a compare-match
-signal with two registers.
+
+This LSI includes **two on-chip 8-bit timer units**: Unit 0 and Unit 1.  
+Each unit consists of **two independent 8-bit counter channels**, giving a total of **four channels**.
+
+The 8-bit timer module is highly flexible and can be used for a variety of applications, including:
+
+- Counting external events
+- Generating counter reset signals
+- Generating interrupt requests
+- Producing pulse outputs with a desired duty cycle using compare-match logic
+
+Each channel uses **two compare-match registers**, allowing for accurate timing and control in embedded systems.
+
+---
 
 ## Block Diagram
-![8-Bit Timer Module](Picture/Screenshot 2025-06-14 at 10-30-28 8bit_Timer.png)
+
+![8-Bit Timer Module](Picture/Screenshot%202025-06-14%20at%2010-30-28%208bit_Timer.png)
