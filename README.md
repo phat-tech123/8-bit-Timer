@@ -8,4 +8,4 @@ counter reset, interrupt requests, and pulse output with a desired duty cycle us
 signal with two registers.
 
 ## Block Diagram
-[8-Bit Timer Module](Picture/Screenshot 2025-06-14 at 10-30-28 8bit_Timer.png)
+![8-Bit Timer Module](Picture/Screenshot 2025-06-14 at 10-30-28 8bit_Timer.png)
