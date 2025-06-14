@@ -2,11 +2,9 @@
 
 ## Introduction
 
-This LSI includes **two on-chip 8-bit timer units**: Unit 0 and Unit 1.  
-Each unit consists of **two independent 8-bit counter channels**, giving a total of **four channels**.
+This LSI includes **two on-chip 8-bit timer units**: Unit 0 and Unit 1. Each unit consists of **two independent 8-bit counter channels**, giving a total of **four channels**.
 
 The 8-bit timer module is highly flexible and can be used for a variety of applications, including:
-
 - Counting external events
 - Generating counter reset signals
 - Generating interrupt requests
@@ -14,7 +12,6 @@ The 8-bit timer module is highly flexible and can be used for a variety of appli
 
 Each channel uses **two compare-match registers**, allowing for accurate timing and control in embedded systems.
 
----
 
 ## Block Diagram
 
