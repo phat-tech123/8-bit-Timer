@@ -22,6 +22,8 @@ assign Overflow = (TCNT == 8'hff);
 always@(posedge CounterClock or negedge CounterClock or posedge CounterClear) begin
 	if(CounterClear) 
 		TCNT <= 8'b0;
+	else if(TCNT == 8'hff) 
+		TCNT <= TCNT;
 	else if(CounterEdge == PROHIBITED)
 		TCNT <= TCNT;
 	else if(CounterClock && CounterEdge == RISING_EDGE)

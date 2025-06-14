@@ -23,7 +23,7 @@ initial begin
 	CounterClock = 0;
 	CounterEdge = 2'b11;
 	CounterClear = 0;
-
+	//#1300 CounterClear = 1;
 	#2000 $finish;
 end
 
