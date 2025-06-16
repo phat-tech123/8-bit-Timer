@@ -13,11 +13,13 @@ localparam RISING_EDGE 	= 2'b01;
 localparam FALLING_EDGE = 2'b10;
 localparam BOTH_EDGES 	= 2'b11;
 
+reg [BIT_WIDTH-1:0] cnt;
+
 initial begin
-	TCNT = 8'b0;
+	cnt = 8'b0;
 end
 
-assign Overflow = (TCNT == 8'hff);
+assign Overflow = (cnt == 8'hff);
 
 always@(posedge CounterClock or negedge CounterClock or posedge CounterClear) begin
 	if(CounterClear) 

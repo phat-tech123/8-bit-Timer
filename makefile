@@ -6,7 +6,13 @@ OUTPUT_DIR = Output
 
 #Timer 
 OUTPUT = Timer
-SRC = RTL/Timer.v Testbench/Timer_tb.v
+SRC = \
+      RTL/Timer.v \
+      RTL/ClockSelect.v \
+      RTL/Comparator.v \
+      RTL/Counter.v \
+      RTL/LogicControl.v \
+      Testbench/Timer_tb.v
 VCD_FILE = Timer.vcd
 
 all: compile run wave
