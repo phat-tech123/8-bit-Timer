@@ -77,11 +77,12 @@ Timer #(.BIT_WIDTH(8), .CLK_SELECT_BIT_WIDTH(5), .EDGE_SELECT_BIT_WIDTH(2)) Time
 	.CMIB2(CMIB2),
 	.CMIB3(CMIB3),
 	.OVI2(OVI2),
-	.OVI3(OVI3),
-
-	.OVI0(OVI0)
+	.OVI3(OVI3)
 );
 
-
+initial begin
+	$dumpfile("Output/Timer.vcd");
+	$dumpvars(0, Timer_tb);
+end
 
 endmodule

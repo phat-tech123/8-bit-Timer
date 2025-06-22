@@ -85,9 +85,9 @@ reg [BIT_WIDTH-1:0] TCCR_3; 	//Timer counter control register_3
 reg [BIT_WIDTH-1:0] TCSR_3; 	//Timer control/status register_3
 
 
-reg [BIT_WIDTH-1:0] register_file [0:11]; 
+reg [2*BIT_WIDTH-1:0] register_file [0:11]; 
 initial begin
-	$readmemb("../Program/INIT_PROG.txt, register_file");
+	$readmemb("../Program/INIT_PROG.bin", register_file);
 
 	//UNIT 0
 	TCNT_0  = register_file[0][15:8];
@@ -126,6 +126,11 @@ wire CounterClock0, CounterClock1, CounterClock2, CounterClock3;
 wire [EDGE_SELECT_BIT_WIDTH-1:0] CounterEdge0, CounterEdge1, CounterEdge2, CounterEdge3;
 wire CounterClear0, CounterClear1, CounterClear2, CounterClear3;
 wire Overflow0, Overflow1, Overflow2, Overflow3;
+
+localparam PROHIBITED 	= 2'b00;
+localparam RISING_EDGE 	= 2'b01;
+localparam FALLING_EDGE = 2'b10;
+localparam BOTH_EDGES 	= 2'b11;
 
 assign Overflow_0 = (TCNT_0 == 8'hff);
 assign Overflow_1 = (TCNT_1 == 8'hff);
@@ -176,13 +181,23 @@ Comparator Comparator_A0(
 	.TCNT(TCNT_0),
 	.CompareMatch(CompareMatchA0)
 );
-Counter #(.BIT_WIDTH(8)) Counter_0(
-	.CounterClock(CounterClock0),
-	.CounterEdge(CounterEdge0),
-	.CounterClear(CounterClear0),
-	.Overflow(Overflow0),
-	.TCNT(TCNT_0)
-);
+//Counter
+always@(posedge CounterClock0 or negedge CounterClock0 or posedge CounterClear0) begin
+	if(CounterClear0) 
+		TCNT_0 <= 8'b0;
+	else if(TCNT_0 == 8'hff) 
+		TCNT_0 <= TCNT_0;
+	else if(CounterEdge0 == PROHIBITED)
+		TCNT_0 <= TCNT_0;
+	else if(CounterClock0 && CounterEdge0 == RISING_EDGE)
+		TCNT_0 <= TCNT_0 + 1;
+	else if(!CounterClock0 && CounterEdge0 == FALLING_EDGE)
+		TCNT_0 <= TCNT_0 + 1;
+	else if(CounterEdge0 == BOTH_EDGES)
+		TCNT_0 <= TCNT_0 + 1;
+	else 
+		TCNT_0 <= TCNT_0;
+end
 Comparator Comparator_B0(
 	.TCOR(TCORB_0), 
 	.TCNT(TCNT_0),
@@ -194,13 +209,23 @@ Comparator Comparator_A1(
 	.TCNT(TCNT_1),
 	.CompareMatch(CompareMatchA1)
 );
-Counter #(.BIT_WIDTH(8)) Counter_1(
-	.CounterClock(CounterClock1),
-	.CounterEdge(CounterEdge1),
-	.CounterClear(CounterClear1),
-	.Overflow(Overflow1),
-	.TCNT(TCNT_1)
-);
+//Counter
+always@(posedge CounterClock1 or negedge CounterClock1 or posedge CounterClear1) begin
+	if(CounterClear1) 
+		TCNT_1 <= 8'b0;
+	else if(TCNT_1 == 8'hff) 
+		TCNT_1 <= TCNT_1;
+	else if(CounterEdge1 == PROHIBITED)
+		TCNT_1 <= TCNT_1;
+	else if(CounterClock1 && CounterEdge1 == RISING_EDGE)
+		TCNT_1 <= TCNT_1 + 1;
+	else if(!CounterClock1 && CounterEdge1 == FALLING_EDGE)
+		TCNT_1 <= TCNT_1 + 1;
+	else if(CounterEdge1 == BOTH_EDGES)
+		TCNT_1 <= TCNT_1 + 1;
+	else 
+		TCNT_1 <= TCNT_1;
+end
 Comparator Comparator_B1(
 	.TCOR(TCORB_1), 
 	.TCNT(TCNT_1),
@@ -210,14 +235,14 @@ Comparator Comparator_B1(
 //UNIT 1
 ClockSelect #(.CLK_SELECT_BIT_WIDTH(5), .EDGE_SELECT_BIT_WIDTH(2)) ClockSelect_1(
 	.clk(clk),
-	.TMCI2(TMCI2),
-	.TMCI3(TMCI3),
-	.clock_select_2(clock_select_2),
-	.clock_select_3(clock_select_3),
-	.CounterClock2(CounterClock2),
-	.CounterEdge2(CounterEdge2),
-	.CounterClock3(CounterClock3),
-	.CounterEdge3(CounterEdge3)
+	.TMCI0(TMCI2),
+	.TMCI1(TMCI3),
+	.clock_select_0(clock_select_2),
+	.clock_select_1(clock_select_3),
+	.CounterClock0(CounterClock2),
+	.CounterEdge0(CounterEdge2),
+	.CounterClock1(CounterClock3),
+	.CounterEdge1(CounterEdge3)
 );
 
 LogicControl #(.BIT_WIDTH(BIT_WIDTH), .CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH)) LogicControl_1(
@@ -241,7 +266,7 @@ LogicControl #(.BIT_WIDTH(BIT_WIDTH), .CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH
 	.OVI1(OVI3),
 	.TMO0(TMO2),
 	.TMO1(TMO3),
-	.ACD_REQUEST(ACD_REQUEST_1),
+	.ADC_REQUEST(ADC_REQUEST_1),
 	.clock_select_0(clock_select_2),
 	.clock_select_1(clock_select_3)
 );
@@ -251,13 +276,23 @@ Comparator Comparator_A2(
 	.TCNT(TCNT_2),
 	.CompareMatch(CompareMatchA2)
 );
-Counter #(.BIT_WIDTH(8)) Counter_2(
-	.CounterClock(CounterClock2),
-	.CounterEdge(CounterEdge2),
-	.CounterClear(CounterClear2),
-	.Overflow(Overflow2),
-	.TCNT(TCNT_2)
-);
+//Counter
+always@(posedge CounterClock2 or negedge CounterClock2 or posedge CounterClear2) begin
+	if(CounterClear2) 
+		TCNT_2 <= 8'b0;
+	else if(TCNT_2 == 8'hff) 
+		TCNT_2 <= TCNT_2;
+	else if(CounterEdge2 == PROHIBITED)
+		TCNT_2 <= TCNT_2;
+	else if(CounterClock2 && CounterEdge2 == RISING_EDGE)
+		TCNT_2 <= TCNT_2 + 1;
+	else if(!CounterClock1 && CounterEdge1 == FALLING_EDGE)
+		TCNT_2 <= TCNT_2 + 1;
+	else if(CounterEdge1 == BOTH_EDGES)
+		TCNT_2 <= TCNT_2 + 1;
+	else 
+		TCNT_2 <= TCNT_2;
+end
 Comparator Comparator_B2(
 	.TCOR(TCORB_2), 
 	.TCNT(TCNT_2),
@@ -269,13 +304,23 @@ Comparator Comparator_A3(
 	.TCNT(TCNT_3),
 	.CompareMatch(CompareMatchA3)
 );
-Counter #(.BIT_WIDTH(8)) Counter_3(
-	.CounterClock(CounterClock3),
-	.CounterEdge(CounterEdge3),
-	.CounterClear(CounterClear3),
-	.Overflow(Overflow3),
-	.TCNT(TCNT_3)
-);
+//Counter
+always@(posedge CounterClock3 or negedge CounterClock3 or posedge CounterClear3) begin
+	if(CounterClear3) 
+		TCNT_3 <= 8'b0;
+	else if(TCNT_3 == 8'hff) 
+		TCNT_3 <= TCNT_3;
+	else if(CounterEdge3 == PROHIBITED)
+		TCNT_3 <= TCNT_3;
+	else if(CounterClock3 && CounterEdge3 == RISING_EDGE)
+		TCNT_3 <= TCNT_3 + 1;
+	else if(!CounterClock3 && CounterEdge3 == FALLING_EDGE)
+		TCNT_3 <= TCNT_3 + 1;
+	else if(CounterEdge3 == BOTH_EDGES)
+		TCNT_3 <= TCNT_3 + 1;
+	else 
+		TCNT_3 <= TCNT_3;
+end
 Comparator Comparator_B3(
 	.TCOR(TCORB_3), 
 	.TCNT(TCNT_3),

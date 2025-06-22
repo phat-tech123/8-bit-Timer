@@ -5,7 +5,7 @@ GTKWAVE = gtkwave
 OUTPUT_DIR = Output
 
 #Timer 
-OUTPUT = Timer
+OUTPUT = $(OUTPUT_DIR)/Timer
 SRC = \
       RTL/Timer.v \
       RTL/ClockSelect.v \
@@ -13,7 +13,7 @@ SRC = \
       RTL/Counter.v \
       RTL/LogicControl.v \
       Testbench/Timer_tb.v
-VCD_FILE = Timer.vcd
+VCD_FILE = $(OUTPUT_DIR)/Timer.vcd
 
 all: compile run wave
 

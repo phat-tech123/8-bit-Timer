@@ -1,0 +1,773 @@
+$date
+	Sun Jun 22 15:29:38 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module Timer_tb $end
+$var wire 1 ! ACD_REQUEST_1 $end
+$var wire 1 " TMO3 $end
+$var wire 1 # TMO2 $end
+$var wire 1 $ TMO1 $end
+$var wire 1 % TMO0 $end
+$var wire 1 & OVI3 $end
+$var wire 1 ' OVI2 $end
+$var wire 1 ( OVI1 $end
+$var wire 1 ) OVI0 $end
+$var wire 1 * CMIB3 $end
+$var wire 1 + CMIB2 $end
+$var wire 1 , CMIB1 $end
+$var wire 1 - CMIB0 $end
+$var wire 1 . CMIA3 $end
+$var wire 1 / CMIA2 $end
+$var wire 1 0 CMIA1 $end
+$var wire 1 1 CMIA0 $end
+$var wire 1 2 ACD_REQUEST_0 $end
+$var reg 1 3 TMCI0 $end
+$var reg 1 4 TMCI1 $end
+$var reg 1 5 TMCI2 $end
+$var reg 1 6 TMCI3 $end
+$var reg 1 7 TMRI0 $end
+$var reg 1 8 TMRI1 $end
+$var reg 1 9 TMRI2 $end
+$var reg 1 : TMRI3 $end
+$var reg 1 ; clk $end
+$scope module Timer_u $end
+$var wire 1 ! ACD_REQUEST_1 $end
+$var wire 1 < CounterClear0 $end
+$var wire 1 = CounterClear1 $end
+$var wire 1 > CounterClear2 $end
+$var wire 1 ? CounterClear3 $end
+$var wire 1 3 TMCI0 $end
+$var wire 1 4 TMCI1 $end
+$var wire 1 5 TMCI2 $end
+$var wire 1 6 TMCI3 $end
+$var wire 1 7 TMRI0 $end
+$var wire 1 8 TMRI1 $end
+$var wire 1 9 TMRI2 $end
+$var wire 1 : TMRI3 $end
+$var wire 1 ; clk $end
+$var wire 5 @ clock_select_3 [4:0] $end
+$var wire 5 A clock_select_2 [4:0] $end
+$var wire 5 B clock_select_1 [4:0] $end
+$var wire 5 C clock_select_0 [4:0] $end
+$var wire 1 " TMO3 $end
+$var wire 1 # TMO2 $end
+$var wire 1 $ TMO1 $end
+$var wire 1 % TMO0 $end
+$var wire 1 D Overflow_3 $end
+$var wire 1 E Overflow_2 $end
+$var wire 1 F Overflow_1 $end
+$var wire 1 G Overflow_0 $end
+$var wire 1 & OVI3 $end
+$var wire 1 ' OVI2 $end
+$var wire 1 ( OVI1 $end
+$var wire 1 ) OVI0 $end
+$var wire 2 H CounterEdge3 [1:0] $end
+$var wire 2 I CounterEdge2 [1:0] $end
+$var wire 2 J CounterEdge1 [1:0] $end
+$var wire 2 K CounterEdge0 [1:0] $end
+$var wire 1 L CounterClock3 $end
+$var wire 1 M CounterClock2 $end
+$var wire 1 N CounterClock1 $end
+$var wire 1 O CounterClock0 $end
+$var wire 1 P CompareMatchB3 $end
+$var wire 1 Q CompareMatchB2 $end
+$var wire 1 R CompareMatchB1 $end
+$var wire 1 S CompareMatchB0 $end
+$var wire 1 T CompareMatchA3 $end
+$var wire 1 U CompareMatchA2 $end
+$var wire 1 V CompareMatchA1 $end
+$var wire 1 W CompareMatchA0 $end
+$var wire 1 * CMIB3 $end
+$var wire 1 + CMIB2 $end
+$var wire 1 , CMIB1 $end
+$var wire 1 - CMIB0 $end
+$var wire 1 . CMIA3 $end
+$var wire 1 / CMIA2 $end
+$var wire 1 0 CMIA1 $end
+$var wire 1 1 CMIA0 $end
+$var wire 1 X ADC_REQUEST_1 $end
+$var wire 1 2 ACD_REQUEST_0 $end
+$var parameter 32 Y BIT_WIDTH $end
+$var parameter 2 Z BOTH_EDGES $end
+$var parameter 32 [ CLK_SELECT_BIT_WIDTH $end
+$var parameter 32 \ EDGE_SELECT_BIT_WIDTH $end
+$var parameter 2 ] FALLING_EDGE $end
+$var parameter 2 ^ PROHIBITED $end
+$var parameter 2 _ RISING_EDGE $end
+$var reg 8 ` TCCR_0 [7:0] $end
+$var reg 8 a TCCR_1 [7:0] $end
+$var reg 8 b TCCR_2 [7:0] $end
+$var reg 8 c TCCR_3 [7:0] $end
+$var reg 8 d TCNT_0 [7:0] $end
+$var reg 8 e TCNT_1 [7:0] $end
+$var reg 8 f TCNT_2 [7:0] $end
+$var reg 8 g TCNT_3 [7:0] $end
+$var reg 8 h TCORA_0 [7:0] $end
+$var reg 8 i TCORA_1 [7:0] $end
+$var reg 8 j TCORA_2 [7:0] $end
+$var reg 8 k TCORA_3 [7:0] $end
+$var reg 8 l TCORB_0 [7:0] $end
+$var reg 8 m TCORB_1 [7:0] $end
+$var reg 8 n TCORB_2 [7:0] $end
+$var reg 8 o TCORB_3 [7:0] $end
+$var reg 8 p TCR_0 [7:0] $end
+$var reg 8 q TCR_1 [7:0] $end
+$var reg 8 r TCR_2 [7:0] $end
+$var reg 8 s TCR_3 [7:0] $end
+$var reg 8 t TCSR_0 [7:0] $end
+$var reg 8 u TCSR_1 [7:0] $end
+$var reg 8 v TCSR_2 [7:0] $end
+$var reg 8 w TCSR_3 [7:0] $end
+$scope module ClockSelect_0 $end
+$var wire 1 3 TMCI0 $end
+$var wire 1 4 TMCI1 $end
+$var wire 1 ; clk $end
+$var wire 5 x clock_select_1 [4:0] $end
+$var wire 5 y clock_select_0 [4:0] $end
+$var wire 1 z clk_div8192 $end
+$var wire 1 { clk_div8 $end
+$var wire 1 | clk_div64 $end
+$var wire 1 } clk_div32 $end
+$var wire 1 ~ clk_div2 $end
+$var wire 1 !" clk_div1024 $end
+$var parameter 5 "" BOTH_EDGES_EXTERNAL $end
+$var parameter 32 #" CLK_SELECT_BIT_WIDTH $end
+$var parameter 32 $" EDGE_SELECT_BIT_WIDTH $end
+$var parameter 5 %" FALLING_DIV1024 $end
+$var parameter 5 &" FALLING_DIV2 $end
+$var parameter 5 '" FALLING_DIV32 $end
+$var parameter 5 (" FALLING_DIV64 $end
+$var parameter 5 )" FALLING_DIV8 $end
+$var parameter 5 *" FALLING_DIV8192 $end
+$var parameter 5 +" FALLING_EXTERNAL $end
+$var parameter 5 ," OVF_COMP_MATCH $end
+$var parameter 5 -" PROHIBITED $end
+$var parameter 5 ." RISING_DIV1024 $end
+$var parameter 5 /" RISING_DIV2 $end
+$var parameter 5 0" RISING_DIV32 $end
+$var parameter 5 1" RISING_DIV64 $end
+$var parameter 5 2" RISING_DIV8 $end
+$var parameter 5 3" RISING_DIV8192 $end
+$var parameter 5 4" RISING_EXTERNAL $end
+$var reg 1 O CounterClock0 $end
+$var reg 1 N CounterClock1 $end
+$var reg 2 5" CounterEdge0 [1:0] $end
+$var reg 2 6" CounterEdge1 [1:0] $end
+$scope module div1024 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 7" DIVISOR $end
+$var reg 1 !" clk_out $end
+$var reg 28 8" counter [27:0] $end
+$upscope $end
+$scope module div2 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 9" DIVISOR $end
+$var reg 1 ~ clk_out $end
+$var reg 28 :" counter [27:0] $end
+$upscope $end
+$scope module div32 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 ;" DIVISOR $end
+$var reg 1 } clk_out $end
+$var reg 28 <" counter [27:0] $end
+$upscope $end
+$scope module div64 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 =" DIVISOR $end
+$var reg 1 | clk_out $end
+$var reg 28 >" counter [27:0] $end
+$upscope $end
+$scope module div8 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 ?" DIVISOR $end
+$var reg 1 { clk_out $end
+$var reg 28 @" counter [27:0] $end
+$upscope $end
+$scope module div8192 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 A" DIVISOR $end
+$var reg 1 z clk_out $end
+$var reg 28 B" counter [27:0] $end
+$upscope $end
+$upscope $end
+$scope module ClockSelect_1 $end
+$var wire 1 5 TMCI0 $end
+$var wire 1 6 TMCI1 $end
+$var wire 1 ; clk $end
+$var wire 5 C" clock_select_1 [4:0] $end
+$var wire 5 D" clock_select_0 [4:0] $end
+$var wire 1 E" clk_div8192 $end
+$var wire 1 F" clk_div8 $end
+$var wire 1 G" clk_div64 $end
+$var wire 1 H" clk_div32 $end
+$var wire 1 I" clk_div2 $end
+$var wire 1 J" clk_div1024 $end
+$var parameter 5 K" BOTH_EDGES_EXTERNAL $end
+$var parameter 32 L" CLK_SELECT_BIT_WIDTH $end
+$var parameter 32 M" EDGE_SELECT_BIT_WIDTH $end
+$var parameter 5 N" FALLING_DIV1024 $end
+$var parameter 5 O" FALLING_DIV2 $end
+$var parameter 5 P" FALLING_DIV32 $end
+$var parameter 5 Q" FALLING_DIV64 $end
+$var parameter 5 R" FALLING_DIV8 $end
+$var parameter 5 S" FALLING_DIV8192 $end
+$var parameter 5 T" FALLING_EXTERNAL $end
+$var parameter 5 U" OVF_COMP_MATCH $end
+$var parameter 5 V" PROHIBITED $end
+$var parameter 5 W" RISING_DIV1024 $end
+$var parameter 5 X" RISING_DIV2 $end
+$var parameter 5 Y" RISING_DIV32 $end
+$var parameter 5 Z" RISING_DIV64 $end
+$var parameter 5 [" RISING_DIV8 $end
+$var parameter 5 \" RISING_DIV8192 $end
+$var parameter 5 ]" RISING_EXTERNAL $end
+$var reg 1 M CounterClock0 $end
+$var reg 1 L CounterClock1 $end
+$var reg 2 ^" CounterEdge0 [1:0] $end
+$var reg 2 _" CounterEdge1 [1:0] $end
+$scope module div1024 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 `" DIVISOR $end
+$var reg 1 J" clk_out $end
+$var reg 28 a" counter [27:0] $end
+$upscope $end
+$scope module div2 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 b" DIVISOR $end
+$var reg 1 I" clk_out $end
+$var reg 28 c" counter [27:0] $end
+$upscope $end
+$scope module div32 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 d" DIVISOR $end
+$var reg 1 H" clk_out $end
+$var reg 28 e" counter [27:0] $end
+$upscope $end
+$scope module div64 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 f" DIVISOR $end
+$var reg 1 G" clk_out $end
+$var reg 28 g" counter [27:0] $end
+$upscope $end
+$scope module div8 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 h" DIVISOR $end
+$var reg 1 F" clk_out $end
+$var reg 28 i" counter [27:0] $end
+$upscope $end
+$scope module div8192 $end
+$var wire 1 ; clk_in $end
+$var parameter 32 j" DIVISOR $end
+$var reg 1 E" clk_out $end
+$var reg 28 k" counter [27:0] $end
+$upscope $end
+$upscope $end
+$scope module Comparator_A0 $end
+$var wire 8 l" TCNT [7:0] $end
+$var wire 8 m" TCOR [7:0] $end
+$var wire 1 W CompareMatch $end
+$var parameter 32 n" BIT_WIDTH $end
+$upscope $end
+$scope module Comparator_A1 $end
+$var wire 8 o" TCNT [7:0] $end
+$var wire 8 p" TCOR [7:0] $end
+$var wire 1 V CompareMatch $end
+$var parameter 32 q" BIT_WIDTH $end
+$upscope $end
+$scope module Comparator_A2 $end
+$var wire 8 r" TCNT [7:0] $end
+$var wire 8 s" TCOR [7:0] $end
+$var wire 1 U CompareMatch $end
+$var parameter 32 t" BIT_WIDTH $end
+$upscope $end
+$scope module Comparator_A3 $end
+$var wire 8 u" TCNT [7:0] $end
+$var wire 8 v" TCOR [7:0] $end
+$var wire 1 T CompareMatch $end
+$var parameter 32 w" BIT_WIDTH $end
+$upscope $end
+$scope module Comparator_B0 $end
+$var wire 8 x" TCNT [7:0] $end
+$var wire 8 y" TCOR [7:0] $end
+$var wire 1 S CompareMatch $end
+$var parameter 32 z" BIT_WIDTH $end
+$upscope $end
+$scope module Comparator_B1 $end
+$var wire 8 {" TCNT [7:0] $end
+$var wire 8 |" TCOR [7:0] $end
+$var wire 1 R CompareMatch $end
+$var parameter 32 }" BIT_WIDTH $end
+$upscope $end
+$scope module Comparator_B2 $end
+$var wire 8 ~" TCNT [7:0] $end
+$var wire 8 !# TCOR [7:0] $end
+$var wire 1 Q CompareMatch $end
+$var parameter 32 "# BIT_WIDTH $end
+$upscope $end
+$scope module Comparator_B3 $end
+$var wire 8 ## TCNT [7:0] $end
+$var wire 8 $# TCOR [7:0] $end
+$var wire 1 P CompareMatch $end
+$var parameter 32 %# BIT_WIDTH $end
+$upscope $end
+$scope module LogicControl_0 $end
+$var wire 1 W CompareMatchA0 $end
+$var wire 1 V CompareMatchA1 $end
+$var wire 1 S CompareMatchB0 $end
+$var wire 1 R CompareMatchB1 $end
+$var wire 1 &# Overflow0 $end
+$var wire 1 '# Overflow1 $end
+$var wire 8 (# TCCR_0 [7:0] $end
+$var wire 8 )# TCCR_1 [7:0] $end
+$var wire 8 *# TCR_0 [7:0] $end
+$var wire 8 +# TCR_1 [7:0] $end
+$var wire 8 ,# TCSR_0 [7:0] $end
+$var wire 8 -# TCSR_1 [7:0] $end
+$var wire 1 7 TMRI0 $end
+$var wire 1 8 TMRI1 $end
+$var wire 1 .# pulse_rst_0 $end
+$var wire 1 /# pulse_rst_1 $end
+$var wire 5 0# clock_select_1 [4:0] $end
+$var wire 5 1# clock_select_0 [4:0] $end
+$var wire 1 2# TMRIS_1 $end
+$var wire 1 3# TMRIS_0 $end
+$var wire 1 4# OVIE_1 $end
+$var wire 1 5# OVIE_0 $end
+$var wire 1 6# OVF_1 $end
+$var wire 1 7# OVF_0 $end
+$var wire 1 8# OS3_1 $end
+$var wire 1 9# OS3_0 $end
+$var wire 1 :# OS2_1 $end
+$var wire 1 ;# OS2_0 $end
+$var wire 1 <# OS1_1 $end
+$var wire 1 =# OS1_0 $end
+$var wire 1 ># OS0_1 $end
+$var wire 1 ?# OS0_0 $end
+$var wire 1 @# ICKS1_1 $end
+$var wire 1 A# ICKS1_0 $end
+$var wire 1 B# ICKS0_1 $end
+$var wire 1 C# ICKS0_0 $end
+$var wire 1 D# CounterClear1 $end
+$var wire 1 E# CounterClear0 $end
+$var wire 1 F# CMIEB_1 $end
+$var wire 1 G# CMIEB_0 $end
+$var wire 1 H# CMIEA_1 $end
+$var wire 1 I# CMIEA_0 $end
+$var wire 1 J# CMFB_1 $end
+$var wire 1 K# CMFB_0 $end
+$var wire 1 L# CMFA_1 $end
+$var wire 1 M# CMFA_0 $end
+$var wire 1 N# CKS2_1 $end
+$var wire 1 O# CKS2_0 $end
+$var wire 1 P# CKS1_1 $end
+$var wire 1 Q# CKS1_0 $end
+$var wire 1 R# CKS0_1 $end
+$var wire 1 S# CKS0_0 $end
+$var wire 1 T# CCLR1_1 $end
+$var wire 1 U# CCLR1_0 $end
+$var wire 1 V# CCLR0_1 $end
+$var wire 1 W# CCLR0_0 $end
+$var wire 1 X# ADTE_0 $end
+$var parameter 32 Y# BIT_WIDTH $end
+$var parameter 32 Z# CLK_SELECT_BIT_WIDTH $end
+$var reg 1 2 ADC_REQUEST $end
+$var reg 1 1 CMIA0 $end
+$var reg 1 0 CMIA1 $end
+$var reg 1 - CMIB0 $end
+$var reg 1 , CMIB1 $end
+$var reg 1 ) OVI0 $end
+$var reg 1 ( OVI1 $end
+$var reg 1 % TMO0 $end
+$var reg 1 $ TMO1 $end
+$var reg 1 [# edge_rst_0 $end
+$var reg 1 \# edge_rst_1 $end
+$upscope $end
+$scope module LogicControl_1 $end
+$var wire 1 U CompareMatchA0 $end
+$var wire 1 T CompareMatchA1 $end
+$var wire 1 Q CompareMatchB0 $end
+$var wire 1 P CompareMatchB1 $end
+$var wire 1 ]# Overflow0 $end
+$var wire 1 ^# Overflow1 $end
+$var wire 8 _# TCCR_0 [7:0] $end
+$var wire 8 `# TCCR_1 [7:0] $end
+$var wire 8 a# TCR_0 [7:0] $end
+$var wire 8 b# TCR_1 [7:0] $end
+$var wire 8 c# TCSR_0 [7:0] $end
+$var wire 8 d# TCSR_1 [7:0] $end
+$var wire 1 9 TMRI0 $end
+$var wire 1 : TMRI1 $end
+$var wire 1 e# pulse_rst_0 $end
+$var wire 1 f# pulse_rst_1 $end
+$var wire 5 g# clock_select_1 [4:0] $end
+$var wire 5 h# clock_select_0 [4:0] $end
+$var wire 1 i# TMRIS_1 $end
+$var wire 1 j# TMRIS_0 $end
+$var wire 1 k# OVIE_1 $end
+$var wire 1 l# OVIE_0 $end
+$var wire 1 m# OVF_1 $end
+$var wire 1 n# OVF_0 $end
+$var wire 1 o# OS3_1 $end
+$var wire 1 p# OS3_0 $end
+$var wire 1 q# OS2_1 $end
+$var wire 1 r# OS2_0 $end
+$var wire 1 s# OS1_1 $end
+$var wire 1 t# OS1_0 $end
+$var wire 1 u# OS0_1 $end
+$var wire 1 v# OS0_0 $end
+$var wire 1 w# ICKS1_1 $end
+$var wire 1 x# ICKS1_0 $end
+$var wire 1 y# ICKS0_1 $end
+$var wire 1 z# ICKS0_0 $end
+$var wire 1 {# CounterClear1 $end
+$var wire 1 |# CounterClear0 $end
+$var wire 1 }# CMIEB_1 $end
+$var wire 1 ~# CMIEB_0 $end
+$var wire 1 !$ CMIEA_1 $end
+$var wire 1 "$ CMIEA_0 $end
+$var wire 1 #$ CMFB_1 $end
+$var wire 1 $$ CMFB_0 $end
+$var wire 1 %$ CMFA_1 $end
+$var wire 1 &$ CMFA_0 $end
+$var wire 1 '$ CKS2_1 $end
+$var wire 1 ($ CKS2_0 $end
+$var wire 1 )$ CKS1_1 $end
+$var wire 1 *$ CKS1_0 $end
+$var wire 1 +$ CKS0_1 $end
+$var wire 1 ,$ CKS0_0 $end
+$var wire 1 -$ CCLR1_1 $end
+$var wire 1 .$ CCLR1_0 $end
+$var wire 1 /$ CCLR0_1 $end
+$var wire 1 0$ CCLR0_0 $end
+$var wire 1 1$ ADTE_0 $end
+$var parameter 32 2$ BIT_WIDTH $end
+$var parameter 32 3$ CLK_SELECT_BIT_WIDTH $end
+$var reg 1 X ADC_REQUEST $end
+$var reg 1 / CMIA0 $end
+$var reg 1 . CMIA1 $end
+$var reg 1 + CMIB0 $end
+$var reg 1 * CMIB1 $end
+$var reg 1 ' OVI0 $end
+$var reg 1 & OVI1 $end
+$var reg 1 # TMO0 $end
+$var reg 1 " TMO1 $end
+$var reg 1 4$ edge_rst_0 $end
+$var reg 1 5$ edge_rst_1 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b101 3$
+b1000 2$
+b101 Z#
+b1000 Y#
+b1000 %#
+b1000 "#
+b1000 }"
+b1000 z"
+b1000 w"
+b1000 t"
+b1000 q"
+b1000 n"
+b10000000000000 j"
+b1000 h"
+b1000000 f"
+b100000 d"
+b10 b"
+b10000000000 `"
+b10100 ]"
+b1100 \"
+b100 ["
+b1000 Z"
+b1001 Y"
+b101 X"
+b1101 W"
+b0 V"
+b10000 U"
+b11000 T"
+b1110 S"
+b110 R"
+b1010 Q"
+b1011 P"
+b111 O"
+b1111 N"
+b10 M"
+b101 L"
+b11100 K"
+b10000000000000 A"
+b1000 ?"
+b1000000 ="
+b100000 ;"
+b10 9"
+b10000000000 7"
+b10100 4"
+b1100 3"
+b100 2"
+b1000 1"
+b1001 0"
+b101 /"
+b1101 ."
+b0 -"
+b10000 ,"
+b11000 +"
+b1110 *"
+b110 )"
+b1010 ("
+b1011 '"
+b111 &"
+b1111 %"
+b10 $"
+b101 #"
+b11100 ""
+b1 _
+b0 ^
+b10 ]
+b10 \
+b101 [
+b11 Z
+b1000 Y
+$end
+#0
+$dumpvars
+x5$
+x4$
+x1$
+x0$
+x/$
+x.$
+x-$
+x,$
+x+$
+x*$
+x)$
+x($
+x'$
+x&$
+x%$
+x$$
+x#$
+x"$
+x!$
+x~#
+x}#
+x|#
+x{#
+xz#
+xy#
+xx#
+xw#
+xv#
+xu#
+xt#
+xs#
+xr#
+xq#
+xp#
+xo#
+xn#
+xm#
+xl#
+xk#
+xj#
+xi#
+bx h#
+bx g#
+xf#
+xe#
+bx d#
+bx c#
+bx b#
+bx a#
+bx `#
+bx _#
+z^#
+z]#
+x\#
+x[#
+xX#
+xW#
+xV#
+xU#
+xT#
+xS#
+xR#
+xQ#
+xP#
+xO#
+xN#
+xM#
+xL#
+xK#
+xJ#
+xI#
+xH#
+xG#
+xF#
+xE#
+xD#
+xC#
+xB#
+xA#
+x@#
+x?#
+x>#
+x=#
+x<#
+x;#
+x:#
+x9#
+x8#
+x7#
+x6#
+x5#
+x4#
+x3#
+x2#
+bx 1#
+bx 0#
+x/#
+x.#
+bx -#
+bx ,#
+bx +#
+bx *#
+bx )#
+bx (#
+z'#
+z&#
+bx $#
+bx ##
+bx !#
+bx ~"
+bx |"
+bx {"
+bx y"
+bx x"
+bx v"
+bx u"
+bx s"
+bx r"
+bx p"
+bx o"
+bx m"
+bx l"
+b0 k"
+b0 i"
+b0 g"
+b0 e"
+b0 c"
+b0 a"
+bx _"
+bx ^"
+0J"
+0I"
+0H"
+0G"
+0F"
+0E"
+bx D"
+bx C"
+b0 B"
+b0 @"
+b0 >"
+b0 <"
+b0 :"
+b0 8"
+bx 6"
+bx 5"
+0!"
+0~
+0}
+0|
+0{
+0z
+bx y
+bx x
+bx w
+bx v
+bx u
+bx t
+bx s
+bx r
+bx q
+bx p
+bx o
+bx n
+bx m
+bx l
+bx k
+bx j
+bx i
+bx h
+bx g
+bx f
+bx e
+bx d
+bx c
+bx b
+bx a
+bx `
+xX
+xW
+xV
+xU
+xT
+xS
+xR
+xQ
+xP
+xO
+xN
+xM
+xL
+bx K
+bx J
+bx I
+bx H
+xG
+xF
+xE
+xD
+bx C
+bx B
+bx A
+bx @
+z?
+z>
+z=
+z<
+x;
+x:
+x9
+x8
+x7
+x6
+x5
+x4
+x3
+x2
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+x&
+x%
+x$
+x#
+x"
+z!
+$end
