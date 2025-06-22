@@ -80,9 +80,27 @@ Timer #(.BIT_WIDTH(8), .CLK_SELECT_BIT_WIDTH(5), .EDGE_SELECT_BIT_WIDTH(2)) Time
 	.OVI3(OVI3)
 );
 
-initial begin
-	$dumpfile("Output/Timer.vcd");
-	$dumpvars(0, Timer_tb);
-end
+	initial begin
+		$dumpfile("Output/Timer.vcd");
+		$dumpvars(0, Timer_tb);
+	end
 
+	initial begin
+		clk = 0;
+		TMCI0 = 0;
+		TMCI1 = 0;
+		TMCI2 = 0;
+		TMCI3 = 0;
+		TMRI0 = 0;
+		TMRI1 = 0;
+		TMRI2 = 0;
+		TMRI3 = 0;
+
+
+		#2000 $finish;
+	end
+
+ 	always #5 clk = ~clk;
+	always #10 TMCI0 = ~TMCI0;
+	always #15 TMCI1 = ~TMCI1;
 endmodule
