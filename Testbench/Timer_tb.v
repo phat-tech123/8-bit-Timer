@@ -103,4 +103,10 @@ Timer #(.BIT_WIDTH(8), .CLK_SELECT_BIT_WIDTH(5), .EDGE_SELECT_BIT_WIDTH(2)) Time
  	always #5 clk = ~clk;
 	always #10 TMCI0 = ~TMCI0;
 	always #15 TMCI1 = ~TMCI1;
+
+
+	initial begin
+		$monitor("Time=%0t TCNT_0:%b CounterClear0:%b CompareMatchA0:%b Comparator_B0:%b %b", 
+			$time, Timer_u.TCNT_0, Timer_u.CounterClear0, Timer_u.CompareMatchA0, Timer_u.CompareMatchB0, Timer_u.TMO0);
+	end
 endmodule

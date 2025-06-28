@@ -16,3 +16,9 @@ Each channel uses **two compare-match registers**, allowing for accurate timing 
 ## Block Diagram
 
 ![8-Bit Timer Module](Picture/Screenshot%202025-06-14%20at%2010-30-28%208bit_Timer.png)
+
+
+## Operation
+### Pulse Output
+![Example of Pulse Output](Picture/ExampleOfPulseOutput.png)
+![Simulation of Pulse Output](Picture/PulseOutput.png)

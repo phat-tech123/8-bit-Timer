@@ -42,8 +42,8 @@ module LogicControl#(
 assign CMIEB_0 	= TCR_0[7];
 assign CMIEA_0 	= TCR_0[6];
 assign OVIE_0 	= TCR_0[5];
-assign CCLR0_0 	= TCR_0[4];
-assign CCLR1_0 	= TCR_0[3];
+assign CCLR1_0 	= TCR_0[4];
+assign CCLR0_0 	= TCR_0[3];
 assign CKS2_0 	= TCR_0[2];
 assign CKS1_0 	= TCR_0[1];
 assign CKS0_0 	= TCR_0[0];
@@ -51,8 +51,8 @@ assign CKS0_0 	= TCR_0[0];
 assign CMIEB_1 	= TCR_1[7];
 assign CMIEA_1 	= TCR_1[6];
 assign OVIE_1 	= TCR_1[5];
-assign CCLR0_1 	= TCR_1[4];
-assign CCLR1_1 	= TCR_1[3];
+assign CCLR1_1 	= TCR_1[4];
+assign CCLR0_1 	= TCR_1[3];
 assign CKS2_1 	= TCR_1[2];
 assign CKS1_1 	= TCR_1[1];
 assign CKS0_1 	= TCR_1[0];
@@ -121,42 +121,164 @@ always@(*) begin
 	ADC_REQUEST <= (ADTE_0)? CompareMatchA0 : !CompareMatchA0;
 	//Channel 0
 	case({OS3_0, OS2_0, OS1_0, OS0_0}) 
-		4'b0000: TMO0 <= TMRI0;
-		4'b0001: TMO0 <= !CompareMatchA0;
-		4'b0010: TMO0 <= CompareMatchA0;
-		4'b0011: TMO0 <= (CompareMatchA0) ? ~TMO0 : TMO0;
-		4'b0100: TMO0 <= !CompareMatchB0;
-		4'b0101: TMO0 <= !CompareMatchA0 | !CompareMatchB0;
-		4'b0110: TMO0 <= !CompareMatchB0 | CompareMatchA0;
-		4'b0111: TMO0 <= (CompareMatchA0) ? ~TMO0 : !CompareMatchB0;
-		4'b1000: TMO0 <= CompareMatchB0;
-		4'b1001: TMO0 <= CompareMatchB0 | !CompareMatchA0;
-		4'b1010: TMO0 <= CompareMatchA0 | CompareMatchB0;
-		4'b1011: TMO0 <= (CompareMatchA0) ? ~TMO0 : CompareMatchB0;
-		4'b1100: TMO0 <= (CompareMatchB0) ? ~TMO0 : TMO0;
-		4'b1101: TMO0 <= (CompareMatchB0) ? ~TMO0 : !CompareMatchA0;
-		4'b1110: TMO0 <= (CompareMatchB0) ? ~TMO0 : CompareMatchA0;
-		4'b1111: TMO0 <= (CompareMatchA0 || CompareMatchB0) ? ~TMO0 : TMO0;
+		4'b0000: TMO0 <= TMO0;
+
+		4'b0001: 
+			if(CompareMatchB0) 	TMO0 <= TMO0;
+			else if(CompareMatchA0) TMO0 <= 0;
+			else 			TMO0 <= TMO0;
+
+		4'b0010: 
+			if(CompareMatchB0) 	TMO0 <= TMO0;
+			else if(CompareMatchA0) TMO0 <= 1;
+			else 			TMO0 <= TMO0;
+
+		4'b0011:
+			if(CompareMatchB0) 	TMO0 <= 0;
+			else if(CompareMatchA0) TMO0 <= ~TMO0;
+			else 			TMO0 <= TMO0;
+
+		4'b0100: 
+			if(CompareMatchB0) 	TMO0 <= 0;
+			else if(CompareMatchA0) TMO0 <= TMO0;
+			else 			TMO0 <= TMO0;
+
+		4'b0101: 
+			if(CompareMatchB0) 	TMO0 <= 0;
+			else if(CompareMatchA0) TMO0 <= 0;
+			else 			TMO0 <= TMO0;
+
+		4'b0110:
+			if(CompareMatchB0) 	TMO0 <= 0;
+			else if(CompareMatchA0) TMO0 <= 1;
+			else 			TMO0 <= TMO0;
+		
+		4'b0111: 
+			if(CompareMatchB0) 	TMO0 <= 0;
+			else if(CompareMatchA0) TMO0 <= ~TMO0;
+			else 			TMO0 <= TMO0;
+		
+		4'b1000: 
+			if(CompareMatchB0) 	TMO0 <= 1;
+			else if(CompareMatchA0) TMO0 <= TMO0;
+			else 			TMO0 <= TMO0;
+		
+		4'b1001: 
+			if(CompareMatchB0) 	TMO0 <= 1;
+			else if(CompareMatchA0) TMO0 <= 0;
+			else 			TMO0 <= TMO0;
+		
+		4'b1010: 
+			if(CompareMatchB0) 	TMO0 <= 1;
+			else if(CompareMatchA0) TMO0 <= 1;
+			else 			TMO0 <= TMO0;
+		
+		4'b1011: 
+			if(CompareMatchB0) 	TMO0 <= 1;
+			else if(CompareMatchA0) TMO0 <= ~TMO0;
+			else 			TMO0 <= TMO0;
+		
+		4'b1100: 
+			if(CompareMatchB0) 	TMO0 <= ~TMO0;
+			else if(CompareMatchA0) TMO0 <= TMO0;
+			else 			TMO0 <= TMO0;
+		
+		4'b1101: 
+			if(CompareMatchB0) 	TMO0 <= ~TMO0;
+			else if(CompareMatchA0) TMO0 <= 0;
+			else 			TMO0 <= TMO0;
+		
+		4'b1110: 
+			if(CompareMatchB0) 	TMO0 <= ~TMO0;
+			else if(CompareMatchA0) TMO0 <= 1;
+			else 			TMO0 <= TMO0;
+		
+		4'b1111: 
+			if(CompareMatchB0) 	TMO0 <= ~TMO0;
+			else if(CompareMatchA0) TMO0 <= ~TMO0;
+			else 			TMO0 <= TMO0;
+		
 		default: TMO0 <= TMO0;
 	endcase
 	//Channel 1
 	case({OS3_1, OS2_1, OS1_1, OS0_1}) 
-		4'b0000: TMO1 <= TMRI1;
-		4'b0001: TMO1 <= !CompareMatchA1;
-		4'b0010: TMO1 <= CompareMatchA1;
-		4'b0011: TMO1 <= (CompareMatchA1) ? ~TMO1 : TMO1;
-		4'b0100: TMO1 <= !CompareMatchB1;
-		4'b0101: TMO1 <= !CompareMatchA1 | !CompareMatchB1;
-		4'b0110: TMO1 <= !CompareMatchB1 | CompareMatchA1;
-		4'b0111: TMO1 <= (CompareMatchA1) ? ~TMO1 : !CompareMatchB1;
-		4'b1000: TMO1 <= CompareMatchB1;
-		4'b1001: TMO1 <= CompareMatchB1 | !CompareMatchA1;
-		4'b1010: TMO1 <= CompareMatchA1 | CompareMatchB1;
-		4'b1011: TMO1 <= (CompareMatchA1) ? ~TMO1 : CompareMatchB1;
-		4'b1100: TMO1 <= (CompareMatchB1) ? ~TMO1 : TMO1;
-		4'b1101: TMO1 <= (CompareMatchB1) ? ~TMO1 : !CompareMatchA1;
-		4'b1110: TMO1 <= (CompareMatchB1) ? ~TMO1 : CompareMatchA1;
-		4'b1111: TMO1 <= (CompareMatchA1 || CompareMatchB1) ? ~TMO1 : TMO1;
+		4'b0000: TMO1 <= TMO1;
+
+		4'b0001: 
+			if(CompareMatchB1) 	TMO1 <= TMO1;
+			else if(CompareMatchA1) TMO1 <= 0;
+			else 			TMO1 <= TMO1;
+
+		4'b0010: 
+			if(CompareMatchB1) 	TMO1 <= TMO1;
+			else if(CompareMatchA1) TMO1 <= 1;
+			else 			TMO1 <= TMO1;
+
+		4'b0011:
+			if(CompareMatchB1) 	TMO1 <= 0;
+			else if(CompareMatchA1) TMO1 <= ~TMO1;
+			else 			TMO1 <= TMO1;
+
+		4'b0100: 
+			if(CompareMatchB1) 	TMO1 <= 0;
+			else if(CompareMatchA1) TMO1 <= TMO1;
+			else 			TMO1 <= TMO1;
+
+		4'b0101: 
+			if(CompareMatchB1) 	TMO1 <= 0;
+			else if(CompareMatchA1) TMO1 <= 0;
+			else 			TMO1 <= TMO1;
+
+		4'b0110:
+			if(CompareMatchB1) 	TMO1 <= 0;
+			else if(CompareMatchA1) TMO1 <= 1;
+			else 			TMO1 <= TMO1;
+		
+		4'b0111: 
+			if(CompareMatchB1) 	TMO1 <= 0;
+			else if(CompareMatchA1) TMO1 <= ~TMO1;
+			else 			TMO1 <= TMO1;
+		
+		4'b1000: 
+			if(CompareMatchB1) 	TMO1 <= 1;
+			else if(CompareMatchA1) TMO1 <= TMO1;
+			else 			TMO1 <= TMO1;
+		
+		4'b1001: 
+			if(CompareMatchB1) 	TMO1 <= 1;
+			else if(CompareMatchA1) TMO1 <= 0;
+			else 			TMO1 <= TMO1;
+		
+		4'b1010: 
+			if(CompareMatchB1) 	TMO1 <= 1;
+			else if(CompareMatchA1) TMO1 <= 1;
+			else 			TMO1 <= TMO1;
+		
+		4'b1011: 
+			if(CompareMatchB1) 	TMO1 <= 1;
+			else if(CompareMatchA1) TMO1 <= ~TMO1;
+			else 			TMO1 <= TMO1;
+		
+		4'b1100: 
+			if(CompareMatchB1) 	TMO1 <= ~TMO1;
+			else if(CompareMatchA1) TMO1 <= TMO1;
+			else 			TMO1 <= TMO1;
+		
+		4'b1101: 
+			if(CompareMatchB1) 	TMO1 <= ~TMO1;
+			else if(CompareMatchA1) TMO1 <= 0;
+			else 			TMO1 <= TMO1;
+		
+		4'b1110: 
+			if(CompareMatchB1) 	TMO1 <= ~TMO1;
+			else if(CompareMatchA1) TMO1 <= 1;
+			else 			TMO1 <= TMO1;
+		
+		4'b1111: 
+			if(CompareMatchB1) 	TMO1 <= ~TMO1;
+			else if(CompareMatchA1) TMO1 <= ~TMO1;
+			else 			TMO1 <= TMO1;
+		
 		default: TMO1 <= TMO1;
 	endcase
 end

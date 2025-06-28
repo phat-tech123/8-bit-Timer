@@ -87,7 +87,9 @@ reg [BIT_WIDTH-1:0] TCSR_3; 	//Timer control/status register_3
 
 reg [2*BIT_WIDTH-1:0] register_file [0:11]; 
 initial begin
-	$readmemb("../Program/INIT_PROG.bin", register_file);
+	
+	$readmemb("RTL/../Program/PULSE_OUTPUT.bin", register_file);
+    	$display(register_file[0]);
 
 	//UNIT 0
 	TCNT_0  = register_file[0][15:8];
@@ -163,6 +165,10 @@ LogicControl #(.BIT_WIDTH(BIT_WIDTH), .CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH
 	.CompareMatchA1(CompareMatchA1),
 	.CompareMatchB0(CompareMatchB0),
 	.CompareMatchB1(CompareMatchB1),
+	.Overflow0(Overflow0),
+	.Overflow1(Overflow1),
+	.CounterClear0(CounterClear0),
+	.CounterClear1(CounterClear1),
 	.CMIA0(CMIA0),
 	.CMIA1(CMIA1),
 	.CMIB0(CMIB0),
@@ -184,7 +190,7 @@ Comparator Comparator_A0(
 //Counter
 always@(posedge CounterClock0 or negedge CounterClock0 or posedge CounterClear0) begin
 	if(CounterClear0) 
-		TCNT_0 <= 8'b0;
+		TCNT_0 <= 8'b00000000;
 	else if(TCNT_0 == 8'hff) 
 		TCNT_0 <= TCNT_0;
 	else if(CounterEdge0 == PROHIBITED)
@@ -258,6 +264,10 @@ LogicControl #(.BIT_WIDTH(BIT_WIDTH), .CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH
 	.CompareMatchA1(CompareMatchA3),
 	.CompareMatchB0(CompareMatchB2),
 	.CompareMatchB1(CompareMatchB3),
+	.Overflow0(Overflow2),
+	.Overflow1(Overflow3),
+	.CounterClear0(CounterClear2),
+	.CounterClear1(CounterClear3),
 	.CMIA0(CMIA2),
 	.CMIA1(CMIA3),
 	.CMIB0(CMIB2),
