@@ -19,6 +19,21 @@ Each channel uses **two compare-match registers**, allowing for accurate timing 
 
 
 ## Operation
-### Pulse Output
+### Pulse Output:
+//UNIT 0
+0000_0000_0000_0000 	//TCNT
+0000_1110_1111_1111 	//TCORA
+0000_0111_1111_1111 	//TCORB
+0000_1001_0000_0000 	//TCR 	
+0000_0001_0000_0000 	//TCCR
+0000_0110_0001_0000 	//TCSR
+
+//UNIT 1
+0000_0000_0000_0000 	//TCNT
+1111_1111_1111_1111 	//TCORA
+1111_1111_1111_1111 	//TCORB
+0000_0000_0000_0000 	//TCR
+0000_0000_0000_0000 	//TCCR
+0000_0000_0001_0000 	//TCSR
 ![Example of Pulse Output](Picture/ExampleOfPulseOutput.png)
 ![Simulation of Pulse Output](Picture/PulseOutput.png)
