@@ -87,8 +87,7 @@ reg [BIT_WIDTH-1:0] TCSR_3; 	//Timer control/status register_3
 
 reg [2*BIT_WIDTH-1:0] register_file [0:11]; 
 initial begin
-	
-	$readmemb("RTL/../Program/PULSE_OUTPUT.bin", register_file);
+	$readmemb("RTL/../Program/RESET_INPUT.bin", register_file);
     	$display(register_file[0]);
 
 	//UNIT 0
@@ -153,6 +152,7 @@ ClockSelect #(.CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH), .EDGE_SELECT_BIT_WIDT
 );
 
 LogicControl #(.BIT_WIDTH(BIT_WIDTH), .CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH)) LogicControl_0(
+	.clk(clk),
 	.TMRI0(TMRI0),
 	.TMRI1(TMRI1),
 	.TCR_0(TCR_0),

@@ -2,6 +2,7 @@ module LogicControl#(
 	parameter BIT_WIDTH = 8,
 	parameter CLK_SELECT_BIT_WIDTH = 4
 )(
+	input wire clk,
 	input wire TMRI0,
 	input wire TMRI1,
 
@@ -86,25 +87,27 @@ assign OS1_1 	= TCSR_1[1];
 assign OS0_1 	= TCSR_1[0];
 
 //Channel 0:
-assign pulse_rst_0 = TMRIS_0 && TMRI0;
-reg edge_rst_0;
-always@(posedge TMRI0) begin
-	edge_rst_0 <= TMRIS_0;
+reg TMRI0_d;
+always@(posedge clk) begin
+	TMRI0_d <= TMRI0;
 end
+assign pulse_rst_0 = TMRIS_0 & TMRI0;
+assign edge_rst_0  = TMRI0_d; 
 assign CounterClear0 = 	({CCLR1_0, CCLR0_0} == 2'b00)? 0 :
 			({CCLR1_0, CCLR0_0} == 2'b01)? CompareMatchA0 :
 			({CCLR1_0, CCLR0_0} == 2'b10)? CompareMatchB0 :
-			(TMRIS_0) ? edge_rst_0 : pulse_rst_0;
+			(TMRIS_0) ? pulse_rst_0 : edge_rst_0;
 //Channel 1:
-assign pulse_rst_1 = TMRIS_1 && TMRI1;
-reg edge_rst_1;
-always@(posedge TMRI0) begin
-	edge_rst_1 <= TMRIS_1;
+reg TMRI1_d;
+always@(posedge clk) begin
+	TMRI1_d <= TMRI1;
 end
+assign pulse_rst_1 = TMRIS_1 & TMRI1;
+assign edge_rst_1  = TMRI1_d;
 assign CounterClear1 = 	({CCLR1_1, CCLR0_1} == 2'b00)? 0 :
 			({CCLR1_1, CCLR0_1} == 2'b01)? CompareMatchA1 :
 			({CCLR1_1, CCLR0_1} == 2'b10)? CompareMatchB1 :
-			(TMRIS_1) ? edge_rst_1 : pulse_rst_1;
+			(TMRIS_1) ? pulse_rst_1 : edge_rst_1;
 always@(*) begin
 	//Channel 0:
 	CMIB0 	<= CMFB_0 & CMIEB_0;

@@ -42,3 +42,27 @@ Each channel uses **two compare-match registers**, allowing for accurate timing 
 ```
 ![Example of Pulse Output](Picture/ExampleOfPulseOutput.png)
 ![Simulation of Pulse Output](Picture/PulseOutput.png)
+
+
+### Reset Input:
+1. Set both bits CCLR1 and CCLR0 in TCR to 1 and set the TMRIS bit in TCCR to 1 so that TCNT is cleared at the high level input of the TMRI signal.
+2. In TCSR, set bits OS3 to OS0 to B'0110, causing the output to change to 1 at a TCORA compare match and to 0 at a TCORB compare match.
+```sh
+//UNIT 0
+0000_0000_0000_0000 	//TCNT
+0000_1110_1111_1111 	//TCORA
+0000_0111_1111_1111 	//TCORB
+0001_1001_0000_0000 	//TCR 	
+0000_1001_0000_0000 	//TCCR
+0000_0110_0001_0000 	//TCSR
+
+//UNIT 1
+0000_0000_0000_0000 	//TCNT
+1111_1111_1111_1111 	//TCORA
+1111_1111_1111_1111 	//TCORB
+0000_0000_0000_0000 	//TCR
+0000_0000_0000_0000 	//TCCR
+0000_0000_0001_0000 	//TCSR
+```
+![Example of Reset Input](Picture/ExampleOfResetInput.png)
+![Simulation of Reset Input](Picture/ResetInput.png)

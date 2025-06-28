@@ -91,12 +91,12 @@ Timer #(.BIT_WIDTH(8), .CLK_SELECT_BIT_WIDTH(5), .EDGE_SELECT_BIT_WIDTH(2)) Time
 		TMCI1 = 0;
 		TMCI2 = 0;
 		TMCI3 = 0;
-		TMRI0 = 0;
+		TMRI0 = 1;
 		TMRI1 = 0;
 		TMRI2 = 0;
 		TMRI3 = 0;
 
-
+		#50 TMRI0 = 0;
 		#2000 $finish;
 	end
 
