@@ -22,6 +22,7 @@ Each channel uses **two compare-match registers**, allowing for accurate timing 
 ### Pulse Output:
 1. In TCR, clear bit CCLR1 to 0 and set bit CCLR0 to 1 so that TCNT is cleared at a TCORA compare match.
 2. In TCSR, set bits OS3 to OS0 to B'0110, causing the output to change to 1 at a TCORA compare match and to 0 at a TCORB compare match.
+3. In TCR, clear bit CKS2, CKS1, CKS0 to 0 and clear ICKS1 to 0, set ICKS0 to 1 to use internal clock and counts at rising edge of P/2.
 ```sh
 //UNIT 0
 0000_0000_0000_0000 	//TCNT
