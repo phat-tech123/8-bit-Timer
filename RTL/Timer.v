@@ -252,6 +252,7 @@ ClockSelect #(.CLK_SELECT_BIT_WIDTH(5), .EDGE_SELECT_BIT_WIDTH(2)) ClockSelect_1
 );
 
 LogicControl #(.BIT_WIDTH(BIT_WIDTH), .CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH)) LogicControl_1(
+	.clk(clk),
 	.TMRI0(TMRI2),
 	.TMRI1(TMRI3),
 	.TCR_0(TCR_2),

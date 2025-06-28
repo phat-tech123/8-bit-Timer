@@ -1,5 +1,5 @@
 $date
-	Sat Jun 28 17:34:09 2025
+	Sat Jun 28 17:41:12 2025
 $end
 $version
 	Icarus Verilog
@@ -409,54 +409,54 @@ $var wire 8 a# TCSR_0 [7:0] $end
 $var wire 8 b# TCSR_1 [7:0] $end
 $var wire 1 9 TMRI0 $end
 $var wire 1 : TMRI1 $end
-$var wire 1 c# clk $end
-$var wire 1 d# edge_rst_0 $end
-$var wire 1 e# edge_rst_1 $end
-$var wire 1 f# pulse_rst_0 $end
-$var wire 1 g# pulse_rst_1 $end
-$var wire 5 h# clock_select_1 [4:0] $end
-$var wire 5 i# clock_select_0 [4:0] $end
-$var wire 1 j# TMRIS_1 $end
-$var wire 1 k# TMRIS_0 $end
-$var wire 1 l# OVIE_1 $end
-$var wire 1 m# OVIE_0 $end
-$var wire 1 n# OVF_1 $end
-$var wire 1 o# OVF_0 $end
-$var wire 1 p# OS3_1 $end
-$var wire 1 q# OS3_0 $end
-$var wire 1 r# OS2_1 $end
-$var wire 1 s# OS2_0 $end
-$var wire 1 t# OS1_1 $end
-$var wire 1 u# OS1_0 $end
-$var wire 1 v# OS0_1 $end
-$var wire 1 w# OS0_0 $end
-$var wire 1 x# ICKS1_1 $end
-$var wire 1 y# ICKS1_0 $end
-$var wire 1 z# ICKS0_1 $end
-$var wire 1 {# ICKS0_0 $end
+$var wire 1 ; clk $end
+$var wire 1 c# edge_rst_0 $end
+$var wire 1 d# edge_rst_1 $end
+$var wire 1 e# pulse_rst_0 $end
+$var wire 1 f# pulse_rst_1 $end
+$var wire 5 g# clock_select_1 [4:0] $end
+$var wire 5 h# clock_select_0 [4:0] $end
+$var wire 1 i# TMRIS_1 $end
+$var wire 1 j# TMRIS_0 $end
+$var wire 1 k# OVIE_1 $end
+$var wire 1 l# OVIE_0 $end
+$var wire 1 m# OVF_1 $end
+$var wire 1 n# OVF_0 $end
+$var wire 1 o# OS3_1 $end
+$var wire 1 p# OS3_0 $end
+$var wire 1 q# OS2_1 $end
+$var wire 1 r# OS2_0 $end
+$var wire 1 s# OS1_1 $end
+$var wire 1 t# OS1_0 $end
+$var wire 1 u# OS0_1 $end
+$var wire 1 v# OS0_0 $end
+$var wire 1 w# ICKS1_1 $end
+$var wire 1 x# ICKS1_0 $end
+$var wire 1 y# ICKS0_1 $end
+$var wire 1 z# ICKS0_0 $end
 $var wire 1 P CounterClear1 $end
 $var wire 1 Q CounterClear0 $end
-$var wire 1 |# CMIEB_1 $end
-$var wire 1 }# CMIEB_0 $end
-$var wire 1 ~# CMIEA_1 $end
-$var wire 1 !$ CMIEA_0 $end
-$var wire 1 "$ CMFB_1 $end
-$var wire 1 #$ CMFB_0 $end
-$var wire 1 $$ CMFA_1 $end
-$var wire 1 %$ CMFA_0 $end
-$var wire 1 &$ CKS2_1 $end
-$var wire 1 '$ CKS2_0 $end
-$var wire 1 ($ CKS1_1 $end
-$var wire 1 )$ CKS1_0 $end
-$var wire 1 *$ CKS0_1 $end
-$var wire 1 +$ CKS0_0 $end
-$var wire 1 ,$ CCLR1_1 $end
-$var wire 1 -$ CCLR1_0 $end
-$var wire 1 .$ CCLR0_1 $end
-$var wire 1 /$ CCLR0_0 $end
-$var wire 1 0$ ADTE_0 $end
-$var parameter 32 1$ BIT_WIDTH $end
-$var parameter 32 2$ CLK_SELECT_BIT_WIDTH $end
+$var wire 1 {# CMIEB_1 $end
+$var wire 1 |# CMIEB_0 $end
+$var wire 1 }# CMIEA_1 $end
+$var wire 1 ~# CMIEA_0 $end
+$var wire 1 !$ CMFB_1 $end
+$var wire 1 "$ CMFB_0 $end
+$var wire 1 #$ CMFA_1 $end
+$var wire 1 $$ CMFA_0 $end
+$var wire 1 %$ CKS2_1 $end
+$var wire 1 &$ CKS2_0 $end
+$var wire 1 '$ CKS1_1 $end
+$var wire 1 ($ CKS1_0 $end
+$var wire 1 )$ CKS0_1 $end
+$var wire 1 *$ CKS0_0 $end
+$var wire 1 +$ CCLR1_1 $end
+$var wire 1 ,$ CCLR1_0 $end
+$var wire 1 -$ CCLR0_1 $end
+$var wire 1 .$ CCLR0_0 $end
+$var wire 1 /$ ADTE_0 $end
+$var parameter 32 0$ BIT_WIDTH $end
+$var parameter 32 1$ CLK_SELECT_BIT_WIDTH $end
 $var reg 1 \ ADC_REQUEST $end
 $var reg 1 / CMIA0 $end
 $var reg 1 . CMIA1 $end
@@ -466,16 +466,16 @@ $var reg 1 ' OVI0 $end
 $var reg 1 & OVI1 $end
 $var reg 1 # TMO0 $end
 $var reg 1 " TMO1 $end
-$var reg 1 d# TMRI0_d $end
-$var reg 1 e# TMRI1_d $end
+$var reg 1 c# TMRI0_d $end
+$var reg 1 d# TMRI1_d $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
 $dumpall
-b101 2$
-b1000 1$
+b101 1$
+b1000 0$
 b101 \#
 b1000 [#
 b1000 )#
@@ -546,7 +546,6 @@ b1000 ]
 $end
 #0
 $dumpvars
-00$
 0/$
 0.$
 0-$
@@ -583,13 +582,13 @@ $dumpvars
 0l#
 0k#
 0j#
-b0 i#
+0i#
 b0 h#
-0g#
+b0 g#
 0f#
-xe#
+0e#
 xd#
-zc#
+xc#
 b10000 b#
 b0 a#
 b0 `#
@@ -794,6 +793,8 @@ b1 i"
 b1 k"
 b1 e"
 b1 o"
+0c#
+0d#
 1;
 #10
 0;
