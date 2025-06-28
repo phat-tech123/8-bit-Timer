@@ -20,6 +20,8 @@ Each channel uses **two compare-match registers**, allowing for accurate timing 
 
 ## Operation
 ### Pulse Output:
+1. In TCR, clear bit CCLR1 to 0 and set bit CCLR0 to 1 so that TCNT is cleared at a TCORA
+compare match.
 //UNIT 0
 0000_0000_0000_0000 	//TCNT
 0000_1110_1111_1111 	//TCORA
