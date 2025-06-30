@@ -101,7 +101,9 @@ Timer #(.BIT_WIDTH(8), .CLK_SELECT_BIT_WIDTH(5), .EDGE_SELECT_BIT_WIDTH(2)) Time
 	end
 
  	always #5 clk = ~clk;
+	//at least 1.5 states for incrementation at a single edge
 	always #10 TMCI0 = ~TMCI0;
+	//at least 2.5 states for incrementation at both edges
 	always #15 TMCI1 = ~TMCI1;
 
 

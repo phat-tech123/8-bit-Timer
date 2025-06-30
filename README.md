@@ -66,3 +66,10 @@ Each channel uses **two compare-match registers**, allowing for accurate timing 
 ```
 ![Example of Reset Input](Picture/ExampleOfResetInput.png)
 ![Simulation of Reset Input](Picture/ResetInput.png)
+
+
+## Operation Timing
+### TCNT Count Timing
+The external clock pulse width must be at least 1.5 states for incrementation at a single edge, and at least 2.5 states for incrementation at both edges. The counter will not increment correctly if the pulse width is less than these values.
+![Example of Count Timing](Picture/ExampleOfCountTiming.png)
+![Simulation of Count Timing](Picture/CountTiming.png)

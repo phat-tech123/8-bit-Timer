@@ -87,7 +87,7 @@ reg [BIT_WIDTH-1:0] TCSR_3; 	//Timer control/status register_3
 
 reg [2*BIT_WIDTH-1:0] register_file [0:11]; 
 initial begin
-	$readmemb("RTL/../Program/RESET_INPUT.bin", register_file);
+	$readmemb("RTL/../Program/COUNT_TIMING.bin", register_file);
     	$display(register_file[0]);
 
 	//UNIT 0
