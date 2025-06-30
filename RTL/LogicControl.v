@@ -108,6 +108,8 @@ assign CounterClear1 = 	({CCLR1_1, CCLR0_1} == 2'b00)? 0 :
 			({CCLR1_1, CCLR0_1} == 2'b01)? CompareMatchA1 :
 			({CCLR1_1, CCLR0_1} == 2'b10)? CompareMatchB1 :
 			(TMRIS_1) ? pulse_rst_1 : edge_rst_1;
+
+
 always@(*) begin
 	//Channel 0:
 	CMIB0 	<= CMFB_0 & CMIEB_0;
