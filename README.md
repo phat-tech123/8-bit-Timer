@@ -73,3 +73,8 @@ Each channel uses **two compare-match registers**, allowing for accurate timing 
 The external clock pulse width must be at least 1.5 states for incrementation at a single edge, and at least 2.5 states for incrementation at both edges. The counter will not increment correctly if the pulse width is less than these values.
 ![Example of Count Timing](Picture/ExampleOfCountTiming.png)
 ![Simulation of Count Timing](Picture/CountTiming.png)
+
+### Timing of CMFA and CMFB Setting at Compare Match
+The CMFA and CMFB flags in TCSR are set to 1 by a compare match signal generated when the TCOR and TCNT values match.
+![Example of CMF](Picture/ExampleOfCMF.png)
+![Simulation Of CMF](Picture/CMF.png)

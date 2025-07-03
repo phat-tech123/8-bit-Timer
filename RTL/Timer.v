@@ -87,7 +87,7 @@ reg [BIT_WIDTH-1:0] TCSR_3; 	//Timer control/status register_3
 
 reg [2*BIT_WIDTH-1:0] register_file [0:11]; 
 initial begin
-	$readmemb("RTL/../Program/COUNT_TIMING.bin", register_file);
+	$readmemb("RTL/../Program/CMF_OVF.bin", register_file);
     	$display(register_file[0]);
 
 	//UNIT 0
@@ -138,6 +138,8 @@ assign Overflow_1 = (TCNT_1 == 8'hff);
 assign Overflow_2 = (TCNT_2 == 8'hff);
 assign Overflow_3 = (TCNT_3 == 8'hff);
 
+
+
 //UNIT 0
 ClockSelect #(.CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH), .EDGE_SELECT_BIT_WIDTH(EDGE_SELECT_BIT_WIDTH)) ClockSelect_0(
 	.clk(clk),
@@ -182,6 +184,7 @@ LogicControl #(.BIT_WIDTH(BIT_WIDTH), .CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH
 	.clock_select_1(clock_select_1)
 );
 
+/////////////////////////////////BEGIN CHANEL 0/////////////////////////////////////////////
 Comparator Comparator_A0(
 	.TCOR(TCORA_0), 
 	.TCNT(TCNT_0),
@@ -210,6 +213,28 @@ Comparator Comparator_B0(
 	.CompareMatch(CompareMatchB0)
 );
 
+always@(posedge clk) begin
+	if(CompareMatchB0) 	
+		TCSR_0[7] <= 1;
+	else 
+		TCSR_0[7] <= TCSR_0[7];
+end
+always@(posedge clk) begin
+	if(CompareMatchA0) 	
+		TCSR_0[6] <= 1;
+	else 
+		TCSR_0[6] <= TCSR_0[6];
+end
+always@(posedge clk) begin
+	if(Overflow0)
+		TCSR_0[5] <= 1;
+	else
+		TCSR_0[5] <= TCSR_0[5];
+end
+///////////////////////////////////END CHANEL 0/////////////////////////////////////////////
+
+
+/////////////////////////////////BEGIN CHANEL 1/////////////////////////////////////////////
 Comparator Comparator_A1(
 	.TCOR(TCORA_1), 
 	.TCNT(TCNT_1),
@@ -237,6 +262,26 @@ Comparator Comparator_B1(
 	.TCNT(TCNT_1),
 	.CompareMatch(CompareMatchB1)
 );
+
+always@(posedge clk) begin
+	if(CompareMatchB1) 	
+		TCSR_1[7] <= 1;
+	else 
+		TCSR_1[7] <= TCSR_1[7];
+end
+always@(posedge clk) begin
+	if(CompareMatchA1) 	
+		TCSR_1[6] <= 1;
+	else 
+		TCSR_1[6] <= TCSR_1[6];
+end
+always@(posedge clk) begin
+	if(Overflow1)
+		TCSR_1[5] <= 1;
+	else
+		TCSR_1[5] <= TCSR_1[5];
+end
+///////////////////////////////////END CHANEL 1/////////////////////////////////////////////
 
 //UNIT 1
 ClockSelect #(.CLK_SELECT_BIT_WIDTH(5), .EDGE_SELECT_BIT_WIDTH(2)) ClockSelect_1(
@@ -282,6 +327,7 @@ LogicControl #(.BIT_WIDTH(BIT_WIDTH), .CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH
 	.clock_select_1(clock_select_3)
 );
 
+/////////////////////////////////BEGIN CHANEL 2/////////////////////////////////////////////
 Comparator Comparator_A2(
 	.TCOR(TCORA_2), 
 	.TCNT(TCNT_2),
@@ -310,6 +356,27 @@ Comparator Comparator_B2(
 	.CompareMatch(CompareMatchB2)
 );
 
+always@(posedge clk) begin
+	if(CompareMatchB2) 	
+		TCSR_2[7] <= 1;
+	else 
+		TCSR_2[7] <= TCSR_2[7];
+end
+always@(posedge clk) begin
+	if(CompareMatchA2) 	
+		TCSR_2[6] <= 1;
+	else 
+		TCSR_2[6] <= TCSR_2[6];
+end
+always@(posedge clk) begin
+	if(Overflow2)
+		TCSR_2[5] <= 1;
+	else
+		TCSR_2[5] <= TCSR_2[5];
+end
+///////////////////////////////////END CHANEL 2/////////////////////////////////////////////
+
+/////////////////////////////////BEGIN CHANEL 3/////////////////////////////////////////////
 Comparator Comparator_A3(
 	.TCOR(TCORA_3), 
 	.TCNT(TCNT_3),
@@ -337,5 +404,25 @@ Comparator Comparator_B3(
 	.TCNT(TCNT_3),
 	.CompareMatch(CompareMatchB3)
 );
+
+always@(posedge clk) begin
+	if(CompareMatchB3) 	
+		TCSR_3[7] <= 1;
+	else 
+		TCSR_3[7] <= TCSR_3[7];
+end
+always@(posedge clk) begin
+	if(CompareMatchA3) 	
+		TCSR_3[6] <= 1;
+	else 
+		TCSR_3[6] <= TCSR_3[6];
+end
+always@(posedge clk) begin
+	if(Overflow3)
+		TCSR_3[5] <= 1;
+	else
+		TCSR_3[5] <= TCSR_3[5];
+end
+///////////////////////////////////END CHANEL 3/////////////////////////////////////////////
 
 endmodule
