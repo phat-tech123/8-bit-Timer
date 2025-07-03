@@ -123,7 +123,7 @@ always@(*) begin
 end
 
 always@(*) begin
-	ADC_REQUEST <= (ADTE_0)? CompareMatchA0 : !CompareMatchA0;
+	ADC_REQUEST <= (ADTE_0) ? CompareMatchA0 : !CompareMatchA0;
 	//Channel 0
 	case({OS3_0, OS2_0, OS1_0, OS0_0}) 
 		4'b0000: TMO0 <= TMO0;
@@ -205,6 +205,9 @@ always@(*) begin
 		
 		default: TMO0 <= TMO0;
 	endcase
+end
+
+always@(*) begin
 	//Channel 1
 	case({OS3_1, OS2_1, OS1_1, OS0_1}) 
 		4'b0000: TMO1 <= TMO1;
