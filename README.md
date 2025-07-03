@@ -78,3 +78,8 @@ The external clock pulse width must be at least 1.5 states for incrementation at
 The CMFA and CMFB flags in TCSR are set to 1 by a compare match signal generated when the TCOR and TCNT values match.
 ![Example of CMF](Picture/ExampleOfCMF.png)
 ![Simulation Of CMF](Picture/CMF.png)
+
+### Timing of Overflow Flag (OVF) Setting
+The OVF bit in TCSR is set to 1 when TCNT overflows
+![Example of OVF](Picture/ExampleOfOVF.png)
+![Simulation Of OVF](Picture/OVF.png)

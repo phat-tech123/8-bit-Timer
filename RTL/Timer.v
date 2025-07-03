@@ -133,12 +133,10 @@ localparam RISING_EDGE 	= 2'b01;
 localparam FALLING_EDGE = 2'b10;
 localparam BOTH_EDGES 	= 2'b11;
 
-assign Overflow_0 = (TCNT_0 == 8'hff);
-assign Overflow_1 = (TCNT_1 == 8'hff);
-assign Overflow_2 = (TCNT_2 == 8'hff);
-assign Overflow_3 = (TCNT_3 == 8'hff);
-
-
+assign Overflow0 = (TCNT_0 == 8'hff) ? 1 : 0;
+assign Overflow1 = (TCNT_1 == 8'hff) ? 1 : 0;
+assign Overflow2 = (TCNT_2 == 8'hff) ? 1 : 0;
+assign Overflow3 = (TCNT_3 == 8'hff) ? 1 : 0;
 
 //UNIT 0
 ClockSelect #(.CLK_SELECT_BIT_WIDTH(CLK_SELECT_BIT_WIDTH), .EDGE_SELECT_BIT_WIDTH(EDGE_SELECT_BIT_WIDTH)) ClockSelect_0(
