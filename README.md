@@ -83,3 +83,7 @@ The CMFA and CMFB flags in TCSR are set to 1 by a compare match signal generated
 The OVF bit in TCSR is set to 1 when TCNT overflows
 ![Example of OVF](Picture/ExampleOfOVF.png)
 ![Simulation Of OVF](Picture/OVF.png)
+
+## Synthesis
+### Synthesized Timer
+![Synthesized Timer](Picture/Synthesized_Timer.png)
