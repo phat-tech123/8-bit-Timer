@@ -189,21 +189,18 @@ Comparator Comparator_A0(
 	.CompareMatch(CompareMatchA0)
 );
 //Counter
-always@(posedge CounterClock0 or negedge CounterClock0 or posedge CounterClear0) begin
-	if(CounterClear0) 
-		TCNT_0 <= 8'b00000000;
-	else if(TCNT_0 == 8'hff) 
-		TCNT_0 <= TCNT_0;
-	else if(CounterEdge0 == PROHIBITED)
-		TCNT_0 <= TCNT_0;
-	else if(CounterClock0 && CounterEdge0 == RISING_EDGE)
-		TCNT_0 <= TCNT_0 + 1;
-	else if(!CounterClock0 && CounterEdge0 == FALLING_EDGE)
-		TCNT_0 <= TCNT_0 + 1;
-	else if(CounterEdge0 == BOTH_EDGES)
-		TCNT_0 <= TCNT_0 + 1;
-	else 
-		TCNT_0 <= TCNT_0;
+always @(posedge CounterClock0 or posedge CounterClear0) begin
+    if (CounterClear0) begin
+        TCNT_0 <= 8'b00000000;
+    end else if (TCNT_0 == 8'hff || CounterEdge0 == PROHIBITED) begin
+        TCNT_0 <= TCNT_0;
+    end else if ((CounterEdge0 == RISING_EDGE && CounterClock0) ||
+                 (CounterEdge0 == FALLING_EDGE && !CounterClock0) ||
+                 (CounterEdge0 == BOTH_EDGES)) begin
+        TCNT_0 <= TCNT_0 + 1;
+    end else begin
+        TCNT_0 <= TCNT_0;
+    end
 end
 Comparator Comparator_B0(
 	.TCOR(TCORB_0), 
@@ -239,21 +236,18 @@ Comparator Comparator_A1(
 	.CompareMatch(CompareMatchA1)
 );
 //Counter
-always@(posedge CounterClock1 or negedge CounterClock1 or posedge CounterClear1) begin
-	if(CounterClear1) 
-		TCNT_1 <= 8'b0;
-	else if(TCNT_1 == 8'hff) 
-		TCNT_1 <= TCNT_1;
-	else if(CounterEdge1 == PROHIBITED)
-		TCNT_1 <= TCNT_1;
-	else if(CounterClock1 && CounterEdge1 == RISING_EDGE)
-		TCNT_1 <= TCNT_1 + 1;
-	else if(!CounterClock1 && CounterEdge1 == FALLING_EDGE)
-		TCNT_1 <= TCNT_1 + 1;
-	else if(CounterEdge1 == BOTH_EDGES)
-		TCNT_1 <= TCNT_1 + 1;
-	else 
-		TCNT_1 <= TCNT_1;
+always @(posedge CounterClock1 or posedge CounterClear1) begin
+    if (CounterClear1) begin
+        TCNT_1 <= 8'b00000000;
+    end else if (TCNT_1 == 8'hff || CounterEdge1 == PROHIBITED) begin
+        TCNT_1 <= TCNT_1;
+    end else if ((CounterEdge1 == RISING_EDGE && CounterClock1) ||
+                 (CounterEdge1 == FALLING_EDGE && !CounterClock1) ||
+                 (CounterEdge1 == BOTH_EDGES)) begin
+        TCNT_1 <= TCNT_1 + 1;
+    end else begin
+        TCNT_1 <= TCNT_1;
+    end
 end
 Comparator Comparator_B1(
 	.TCOR(TCORB_1), 
@@ -332,21 +326,18 @@ Comparator Comparator_A2(
 	.CompareMatch(CompareMatchA2)
 );
 //Counter
-always@(posedge CounterClock2 or negedge CounterClock2 or posedge CounterClear2) begin
-	if(CounterClear2) 
-		TCNT_2 <= 8'b0;
-	else if(TCNT_2 == 8'hff) 
-		TCNT_2 <= TCNT_2;
-	else if(CounterEdge2 == PROHIBITED)
-		TCNT_2 <= TCNT_2;
-	else if(CounterClock2 && CounterEdge2 == RISING_EDGE)
-		TCNT_2 <= TCNT_2 + 1;
-	else if(!CounterClock1 && CounterEdge1 == FALLING_EDGE)
-		TCNT_2 <= TCNT_2 + 1;
-	else if(CounterEdge1 == BOTH_EDGES)
-		TCNT_2 <= TCNT_2 + 1;
-	else 
-		TCNT_2 <= TCNT_2;
+always @(posedge CounterClock2 or posedge CounterClear2) begin
+    if (CounterClear2) begin
+        TCNT_2 <= 8'b00000000;
+    end else if (TCNT_2 == 8'hff || CounterEdge2 == PROHIBITED) begin
+        TCNT_2 <= TCNT_2;
+    end else if ((CounterEdge2 == RISING_EDGE && CounterClock2) ||
+                 (CounterEdge2 == FALLING_EDGE && !CounterClock2) ||
+                 (CounterEdge2 == BOTH_EDGES)) begin
+        TCNT_2 <= TCNT_2 + 2;
+    end else begin
+        TCNT_2 <= TCNT_2;
+    end
 end
 Comparator Comparator_B2(
 	.TCOR(TCORB_2), 
@@ -381,21 +372,18 @@ Comparator Comparator_A3(
 	.CompareMatch(CompareMatchA3)
 );
 //Counter
-always@(posedge CounterClock3 or negedge CounterClock3 or posedge CounterClear3) begin
-	if(CounterClear3) 
-		TCNT_3 <= 8'b0;
-	else if(TCNT_3 == 8'hff) 
-		TCNT_3 <= TCNT_3;
-	else if(CounterEdge3 == PROHIBITED)
-		TCNT_3 <= TCNT_3;
-	else if(CounterClock3 && CounterEdge3 == RISING_EDGE)
-		TCNT_3 <= TCNT_3 + 1;
-	else if(!CounterClock3 && CounterEdge3 == FALLING_EDGE)
-		TCNT_3 <= TCNT_3 + 1;
-	else if(CounterEdge3 == BOTH_EDGES)
-		TCNT_3 <= TCNT_3 + 1;
-	else 
-		TCNT_3 <= TCNT_3;
+always @(posedge CounterClock3 or posedge CounterClear3) begin
+    if (CounterClear3) begin
+        TCNT_3 <= 8'b00000000;
+    end else if (TCNT_3 == 8'hff || CounterEdge3 == PROHIBITED) begin
+        TCNT_3 <= TCNT_3;
+    end else if ((CounterEdge3 == RISING_EDGE && CounterClock3) ||
+                 (CounterEdge3 == FALLING_EDGE && !CounterClock3) ||
+                 (CounterEdge3 == BOTH_EDGES)) begin
+        TCNT_3 <= TCNT_3 + 3;
+    end else begin
+        TCNT_3 <= TCNT_3;
+    end
 end
 Comparator Comparator_B3(
 	.TCOR(TCORB_3), 
