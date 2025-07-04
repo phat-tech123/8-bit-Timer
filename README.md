@@ -85,5 +85,4 @@ The OVF bit in TCSR is set to 1 when TCNT overflows
 ![Simulation Of OVF](Picture/OVF.png)
 
 ## Synthesis
-### Synthesized Timer
 ![Synthesized Timer](Picture/Synthesized_Timer.png)
