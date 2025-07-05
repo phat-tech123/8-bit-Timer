@@ -18,7 +18,7 @@ Each channel uses **two compare-match registers**, allowing for accurate timing 
 ![8-Bit Timer Module](Picture/Screenshot%202025-06-14%20at%2010-30-28%208bit_Timer.png)
 
 
-## Operation
+## Simulation
 ### Pulse Output:
 1. In TCR, clear bit CCLR1 to 0 and set bit CCLR0 to 1 so that TCNT is cleared at a TCORA compare match.
 2. In TCSR, set bits OS3 to OS0 to B'0110, causing the output to change to 1 at a TCORA compare match and to 0 at a TCORB compare match.
@@ -67,8 +67,6 @@ Each channel uses **two compare-match registers**, allowing for accurate timing 
 ![Example of Reset Input](Picture/ExampleOfResetInput.png)
 ![Simulation of Reset Input](Picture/ResetInput.png)
 
-
-## Operation Timing
 ### TCNT Count Timing
 The external clock pulse width must be at least 1.5 states for incrementation at a single edge, and at least 2.5 states for incrementation at both edges. The counter will not increment correctly if the pulse width is less than these values.
 ![Example of Count Timing](Picture/ExampleOfCountTiming.png)
